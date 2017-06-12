@@ -1,6 +1,11 @@
-var http = require('http');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('Hello World!');
-}).listen(8080);
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
+
+http.listen(3000, function(){
+  console.log('listening on *:3000');
+});
