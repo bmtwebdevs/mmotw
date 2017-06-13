@@ -1,4 +1,40 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+    
+    apis.weather.getWeather()
+    .then(function (response) {
+        console.log(response);
+        
+        //Convert EPOCH date to human readable
+        var utcSeconds = response.dt;
+        var dateTime = new Date(0); 
+        dateTime.setUTCSeconds(utcSeconds);
+               
+        
+        var weatherPanel = _(document.querySelectorAll(".weather-data"));
+
+        weatherPanel.forEach(function (div) {
+            
+            var html = '<dtitle>Weather - Bristol</dtitle>';
+            
+            var tempConvert = parseInt(response.main.temp)-273.15;            
+            var temp = Math.round(tempConvert * 100)/100;
+            
+            var iconCode = response.weather[0].icon;
+            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+            
+            html += '<font size=5>';
+
+            html += '<div>' + dateTime + '</div><br>';
+            
+            html += '<div>' + response.weather[0].main + '</div>';
+            
+            html += '<div><img src="' + iconUrl + '"/></div>';                                   
+            
+            html += '<div>' + temp + '&deg;</div><br>';                                              
+                        
+            div.innerHTML = html;
+        });
+    });
 
     var trainPanels = _(document.querySelectorAll(".train-times"));
 

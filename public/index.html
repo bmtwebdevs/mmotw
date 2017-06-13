@@ -41,6 +41,7 @@
 
     <script type="text/javascript" src="apis/ajax.js"></script>
     <script type="text/javascript" src="apis/transportapi.js"></script>
+    <script type="text/javascript" src="apis/weather.js"></script>		
     <script type="text/javascript" src="app.js"></script>
 	
 	<script>
@@ -61,13 +62,6 @@
 	}
 	</script>
 	
-	<script type="text/javascript">
-	n =  new Date();
-	y = n.getFullYear();
-	m = n.getMonth() + 1;
-	d = n.getDate();
-	document.getElementById("date").innerHTML = mm + "/" + d + "/" + y;
-	</script>		
       
     <style type="text/css">
       body {
@@ -161,10 +155,12 @@
 
       <!-- DONUT CHART BLOCK -->
         <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit">
+      		<div class="dash-unit weather-data">
 		  		<dtitle>Weather</dtitle>
 		  		<hr>
-	        	<h2>16 Degrees</h2>
+						
+											
+
 			</div>
         </div>
 
@@ -193,7 +189,7 @@
 	      		<dtitle>Local Date</dtitle>
 	      		<hr>
 		      		<div class="clockcenter">
-			      		<digiclock><p id="date"></p></digiclock> 
+			      		<digiclock><div id="date"></digiclock> 
 		      		</div>
 			</div>			
 
