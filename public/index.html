@@ -1,300 +1,46 @@
 <!doctype html>
-<html><head>
-    <meta charset="utf-8">
-    <title>Mirror Mirror On The Wall</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Carlos Alvarez - Alvarez.is">
+<html>
 
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+<head>
+	<meta charset="utf-8">
+	<title>Mirror Mirror On The Wall</title>
+
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="styles/site.css">
 
-    <link href="styles/main.css" rel="stylesheet">
-    <link href="styles/font-style.css" rel="stylesheet">
-    <link href="styles/flexslider.css" rel="stylesheet">
+	<script type="text/javascript" src="lib/lodash.min.js"></script>
+	<script type="text/javascript" src="lib/typed.min.js"></script>
+	<script type="text/javascript" src="lib/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="lib/lodash.min.js"></script>
-    <script type="text/javascript" src="lib/typed.min.js"></script>
-    <script type="text/javascript" src="lib/jquery.min.js"></script>    
-    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-    
-	<script type="text/javascript" src="lib/gauge.js"></script>
-	
-	<!-- NOTY JAVASCRIPT -->
-	<script type="text/javascript" src="lib/noty/jquery.noty.js"></script>
-	<script type="text/javascript" src="lib/noty/layouts/top.js"></script>
-	<script type="text/javascript" src="lib/noty/layouts/topLeft.js"></script>
-	<script type="text/javascript" src="lib/noty/layouts/topRight.js"></script>
-	<script type="text/javascript" src="lib/noty/layouts/topCenter.js"></script>
-	
-	<!-- You can add more layouts if you want -->
-	<script type="text/javascript" src="lib/noty/themes/default.js"></script>
- 
-	<script src="lib/jquery.flexslider.js" type="text/javascript"></script>
+	<!-- APIS -->
+	<script type="text/javascript" src="apis/ajax.js"></script>
+	<script type="text/javascript" src="apis/transportapi.js"></script>
+	<script type="text/javascript" src="apis/weather.js"></script>
 
-    <script type="text/javascript" src="lib/admin.js"></script>
+	<!-- PANELS -->
+	<script type="text/javascript" src="panels/trains.js"></script>
+	<script type="text/javascript" src="panels/weather.js"></script>
+	<script type="text/javascript" src="panels/time.js"></script>
 
-    <script type="text/javascript" src="apis/ajax.js"></script>
-    <script type="text/javascript" src="apis/transportapi.js"></script>
-    <script type="text/javascript" src="apis/weather.js"></script>	
-    <script type="text/javascript" src="weather.js"></script>	
-    <script type="text/javascript" src="voice.js"></script>	
-    <script type="text/javascript" src="trains.js"></script>	
-    <script type="text/javascript" src="app.js"></script>
-	
-	<script>
-	function startTime() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('txt').innerHTML =
-    h + ":" + m + ":" + s;
-    var t = setTimeout(startTime, 500);
-	}
-	function checkTime(i) {
-    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-	}
-	</script>
-	
-      
-    <style type="text/css">
-      body {
-        padding-top: 10px;
-      }
-    </style>
+	<!-- APP -->
+	<script type="text/javascript" src="voice.js"></script>
+	<script type="text/javascript" src="layout.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-   
+</head>
 
-  	<!-- Google Fonts call. Font Used Open Sans & Raleway -->
-	<link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
-  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<body>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("#btn-blog-next").click(function () {
-            $('#blogCarousel').carousel('next')
-        });
-        $("#btn-blog-prev").click(function () {
-            $('#blogCarousel').carousel('prev')
-        });
-
-        $("#btn-client-next").click(function () {
-            $('#clientCarousel').carousel('next')
-        });
-        $("#btn-client-prev").click(function () {
-            $('#clientCarousel').carousel('prev')
-        });
-
-    });
-
-    $(window).load(function () {
-
-        $('.flexslider').flexslider({
-            animation: "slide",
-            slideshow: true,
-            start: function (slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-
-</script>    
-  </head>
-  <body onload="startTime()">
-  
-  	<div class="speech-feedback hidden">
+	<div class="speech-feedback hidden">
 		<img src="images/mic.png" />
 		<span></span>
 	</div>
 
-    <div class="container">
+	<div class="container-fluid">
 
-	  <!-- FIRST ROW OF BLOCKS -->     
-      <div class="row">
+	</div>
 
-      <!-- USER PROFILE BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit">
-	      		<dtitle>User Profile</dtitle>
-	      		<hr>
-				<div class="thumbnail">
-					<img src="images/face80x80.jpg" alt="Marcel Newman" class="img-circle">
-				</div><!-- /thumbnail -->
-				<h1>Moshin Alyas</h1>
-				<h3>Bristol, United Kingdom</h3>
-				<br>
-				</div>
-        </div>
+</body>
 
-      <!-- DONUT CHART BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit weather-data">
-		  		<dtitle>Weather</dtitle>
-		  		<hr>
-						
-											
-
-			</div>
-        </div>
-
-      <!-- DONUT CHART BLOCK -->
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit">
-		  		<dtitle>Your Location</dtitle>
-		  		<hr>
-	        	<h2>Bristol</h2>
-			</div>
-        </div>
-        
-        <div class="col-sm-3 col-lg-3">
-
-      <!-- LOCAL TIME BLOCK -->
-      		<div class="half-unit">
-	      		<dtitle>Local Time</dtitle>
-	      		<hr>
-		      		<div class="clockcenter">
-			      		<digiclock><div id="txt"></div></digiclock>
-		      		</div>
-			</div>
-
-      <!-- SERVER UPTIME -->
-      		<div class="half-unit">
-	      		<dtitle>Local Date</dtitle>
-	      		<hr>
-		      		<div class="clockcenter">
-			      		<digiclock><div id="date"></digiclock> 
-		      		</div>
-			</div>			
-
-        </div>
-      </div><!-- /row -->
-      
-      
-	  <!-- SECOND ROW OF BLOCKS -->     
-      <div class="row">
-        <div class="col-sm-3 col-lg-3">
-       <!-- MAIL BLOCK -->
-      		<div class="dash-unit">
-      		<dtitle>Something  Else</dtitle>
-			  <hr>
-			  test
-
-
-		</div><!-- /dash-unit -->
-    </div><!-- /span3 -->
-
-	  <!-- GRAPH CHART - lineandbars.js file -->     
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit">
-      		<dtitle>Something Else</dtitle>
-			  <hr>
-			  test
-
-			</div>
-        </div>
-
-	  <!-- LAST MONTH REVENUE -->     
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit train-times">
-	      	
-			</div>
-        </div>
-        
-	  <!-- 30 DAYS STATS - CAROUSEL FLEXSLIDER -->     
-        <div class="col-sm-3 col-lg-3">
-      		<div class="dash-unit">
-	      		<dtitle>Something Else</dtitle>
-	      		<hr>
-	      		<br>
-	      		<br>
-	            <div class="flexslider">
-					<ul class="slides">
-						<li>Slide 2</li>
-						<li>Slide 1</li>
-					</ul>
-            </div>
-			</div>
-        </div>
-      </div><!-- /row -->
-     
- 
-
-      
-	  <!-- FOURTH ROW OF BLOCKS -->     
-	<div class="row">
-	
-	  <!-- TWITTER WIDGET BLOCK -->     
-		<div class="col-sm-3 col-lg-3">
-			<div class="dash-unit">
-	      		<dtitle>Twitter Widget</dtitle>
-	      		<hr>
-				<div class="info-user">
-					<span aria-hidden="true" class="li_megaphone fs2"></span>
-				</div>
-				<br>
-		 		<div id="jstwitter" class="clearfix">
-					<ul id="twitter_update_list"></ul>
-				</div>
-				<script src="http://twitter.com/javascripts/blogger.js"></script><!-- Script Needed to load the Tweets -->
-				<script src="http://api.twitter.com/1/statuses/user_timeline/wrapbootstrap.json?callback=twitterCallback2&amp;count=1"></script>
-				<!-- To show your tweets replace "wrapbootstrap", in the line above, with your user. -->
-				<div class="text">
-				<p><grey>Show your tweets here!</grey></p>
-				</div>
-			</div>
-		</div>
-
-	  <!-- NOTIFICATIONS BLOCK -->     
-		<div class="col-sm-3 col-lg-3">
-			<div class="dash-unit">
-	      		<dtitle>Notifications</dtitle>
-	      		<hr>
-
-			</div>
-		</div>
-
-	  <!-- SWITCHES BLOCK -->     
-		<div class="col-sm-3 col-lg-3">
-			<div class="dash-unit">
-	      		<dtitle>Switches</dtitle>
-	      		<hr>
-				  Test
-
-			</div>
-		</div>
-
-	  <!-- GAUGE CHART BLOCK -->     
-		<div class="col-sm-3 col-lg-3">
-			<div class="dash-unit">
-	      		<dtitle>Gauge Chart</dtitle>
-	      		<hr>
-			</div>
-		</div>
-	
-	</div><!--/row -->     
-      
- 	  <!-- FOURTH ROW OF BLOCKS -->     
-		<div class="row">
-
-			
-			<div class="col-sm-3 col-lg-3">
-
-				</div>
-			</div>
-
-		</div><!--/row -->
-     
-      
-      
-	</div> <!-- /container -->
-          
-</body></html>
+</html>

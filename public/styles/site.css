@@ -1,5 +1,6 @@
 body {
     background-color: #000;
+    padding-top: 10px;
 }
 
 ul {
@@ -42,4 +43,13 @@ ul {
 
 .hidden {
     opacity: 0;
+}
+
+.panel {
+    padding: 16px;
+    height: 400px;
+    min-height: 400px;
+    overflow-y: hidden;
+    background-color: transparent;
+    color: #fff;
 }

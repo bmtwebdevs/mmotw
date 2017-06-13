@@ -1,10 +1,14 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    voice.listen('.speech-feedback')
-    trains.liveDeparturePanel('.train-times');
-    weather.currentWeatherPanel('.weather-data');
+    layout.initialise(".container-fluid");
+    layout.addPanel(trains);
+    layout.addPanel(weather);
+    layout.addPanel(time);
 
-    setTimeout(function () { voice.triggerVoice('Hello World') }, 1000);
-    //setTimeout(function () { voice.triggerVoice("Hello Gareth") }, 3900);
+    // trains.liveDeparturePanel('.train-times');
+    // weather.currentWeatherPanel('.weather-data');
+
+    voice.listen('.speech-feedback');
+    voice.triggerVoice('Speak to me..');
 });
