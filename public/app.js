@@ -1,12 +1,12 @@
 
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    voice.listen('.speech-feedback')
-    trains.liveDeparturePanel('.train-times');
-    weather.currentWeatherPanel('.weather-data');
+    layout.initialise(".container-fluid");
+    layout.addPanel(trains);
+    layout.addPanel(weather);
+    layout.addPanel(time);
 
-    voice.triggerVoice('Speak to Me');
-       
+    voice.listen('.speech-feedback');
+    voice.triggerVoice('Speak to me..');
 });
-
 
