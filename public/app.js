@@ -1,44 +1,11 @@
+
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    var trainPanels = _(document.querySelectorAll(".train-times"));
+    voice.listen('.speech-feedback')
+    trains.liveDeparturePanel('.train-times');
+    weather.currentWeatherPanel('.weather-data');
 
-    trainPanels.forEach(function (div) {
-        div.innerHTML = '<dtitle>Train Times<hr /></dtitle><div>Loading</div>';
-    });
-
-    apis.transport.findStations('bath spa')
-        .then(function (response) {
-
-            var station = response[0];
-            console.log(station);
-
-            apis.transport.live(station.station_code)
-                .then(function (response) {
-
-                    trainPanels.forEach(function (div) {
-
-                        var html = ' \
-                            <dtitle>Train Times</dtitle> \
-                            <hr /> \
-                            <ul>';
-
-                        _(response).forEach(function (item) {
-
-                            var itemClass = item.status === 'LATE' ? 'bad' : 'good';
-
-                            html += '<li class="' + itemClass + '">' + item.expected;
-                            if (item.expected !== item.due) {
-                                html += ' (' + item.due + ')';
-                            }
-                            html += ' ' + item.to + ' ' + item.status + '</li>';
-                        });
-
-
-                        html += '</ul>';
-
-                        div.innerHTML = html;
-                    });
-
+<<<<<<< HEAD
                 });
         });
 
@@ -59,4 +26,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				</div>'
         });
     })
+=======
+    setTimeout(function () { voice.triggerVoice('Hello World') }, 1000);
+    //setTimeout(function () { voice.triggerVoice("Hello Gareth") }, 3900);
+>>>>>>> 6d03ef90621ea43e2672546a8087f10a3b44a5cb
 });
