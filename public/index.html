@@ -34,6 +34,8 @@
 
     <script type="text/javascript" src="lib/admin.js"></script>
 
+    <script type="text/javascript" src="lib/sdk.js"></script>	
+    <script type="text/javascript" src="soundcloud.js"></script>	
     <script type="text/javascript" src="apis/ajax.js"></script>
     <script type="text/javascript" src="apis/transportapi.js"></script>
     <script type="text/javascript" src="apis/weather.js"></script>	
@@ -59,6 +61,7 @@
     return i;
 	}
 	</script>
+
 	
       
     <style type="text/css">
@@ -184,9 +187,12 @@
         <div class="col-sm-3 col-lg-3">
        <!-- MAIL BLOCK -->
       		<div class="dash-unit">
-      		<dtitle>Something  Else</dtitle>
+      		<dtitle>Spotify</dtitle>
 			  <hr>
-			  test
+			  
+			  	<button onclick="prevIt()">Prev</button>
+				<button onclick="playIt()">Play</button>
+				<button onclick="nextIt()">Next</button>
 
 
 		</div><!-- /dash-unit -->
