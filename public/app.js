@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
     trains.liveDeparturePanel('.train-times');
     weather.currentWeatherPanel('.weather-data');
 
-    setTimeout(function () { voice.triggerVoice('Hello World') }, 1000);
-    //setTimeout(function () { voice.triggerVoice("Hello Gareth") }, 3900);
+    voice.triggerVoice('Speak to Me');
+       
 });
+
+
