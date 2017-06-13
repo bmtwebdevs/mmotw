@@ -6,9 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     layout.addPanel(weather);
     layout.addPanel(time);
 
-    // trains.liveDeparturePanel('.train-times');
-    // weather.currentWeatherPanel('.weather-data');
-
     voice.listen('.speech-feedback');
     voice.triggerVoice('Speak to me..');
 });
+
