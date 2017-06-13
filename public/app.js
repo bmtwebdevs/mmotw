@@ -5,8 +5,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     layout.addPanel(trains);
     layout.addPanel(weather);
     layout.addPanel(time);
+    layout.addPanel(userprofile);
+    layout.addPanel(slider);
 
     voice.listen('.speech-feedback');
     voice.triggerVoice('Speak to me..');
+    
+    faceClient.initialise();
 });
-
