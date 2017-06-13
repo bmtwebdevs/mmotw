@@ -45,6 +45,11 @@
 	<script type="text/javascript" src="apis/transportapi.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 
+  <script type="text/javascript" src="apis/ajax.js"></script>
+  <script type="text/javascript" src="apis/transportapi.js"></script>
+  <script type="text/javascript" src="apis/weather.js"></script>		
+  <script type="text/javascript" src="app.js"></script>
+
 	<script>
 		function startTime() {
 			var today = new Date();
@@ -63,22 +68,14 @@
 		}
 	</script>
 
-	<script type="text/javascript">
-		n = new Date();
-		y = n.getFullYear();
-		m = n.getMonth() + 1;
-		d = n.getDate();
-		document.getElementById("date").innerHTML = mm + "/" + d + "/" + y;
-	</script>
+    <style type="text/css">
+      body {
+        padding-top: 10px;
+      }
+    </style>
 
-	<style type="text/css">
-		body {
-			padding-top: 10px;
-		}
-	</style>
-
-	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
@@ -144,6 +141,14 @@
 					<h3>Bristol, United Kingdom</h3>
 					<br>
 				</div>
+        </div>
+
+      <!-- DONUT CHART BLOCK -->
+        <div class="col-sm-3 col-lg-3">
+      		<div class="dash-unit weather-data">
+		  		<dtitle>Weather</dtitle>
+		  		<hr>
+			
 			</div>
 
 			<!-- DONUT CHART BLOCK -->
@@ -164,7 +169,38 @@
 				</div>
 			</div>
 
-			<div class="col-sm-3 col-lg-3">
+      <!-- SERVER UPTIME -->
+      		<div class="half-unit">
+	      		<dtitle>Local Date</dtitle>
+	      		<hr>
+		      		<div class="clockcenter">
+			      		<digiclock><div id="date"></digiclock> 
+		      		</div>
+			</div>			
+
+        </div>
+      </div><!-- /row -->
+      
+      
+	  <!-- SECOND ROW OF BLOCKS -->     
+      <div class="row">
+        <div class="col-sm-3 col-lg-3">
+       <!-- MAIL BLOCK -->
+      		<div class="dash-unit">
+      		<dtitle>Something  Else</dtitle>
+			  <hr>
+			  test
+
+
+		</div><!-- /dash-unit -->
+    </div><!-- /span3 -->
+
+	  <!-- GRAPH CHART - lineandbars.js file -->     
+        <div class="col-sm-3 col-lg-3">
+      		<div class="dash-unit">
+      		<dtitle>Something Else</dtitle>
+			  <hr>
+			  test
 
 				<!-- LOCAL TIME BLOCK -->
 				<div class="half-unit">
