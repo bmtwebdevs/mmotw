@@ -2,10 +2,7 @@ var weather = weather || (function () {
 
     var panel;
 
-    function attach(p) {
-
-        panel = p;
-
+    function update() {
         apis.weather.getWeather()
             .then(function (response) {
                 console.log(response);
@@ -21,7 +18,7 @@ var weather = weather || (function () {
                 var html = '<h4>Weather - Bristol</h4>';
 
                 var tempConvert = parseInt(response.main.temp) - 273.15;
-                var temp = Math.round(tempConvert * 100) / 100;
+                var temp = Math.round(tempConvert * 10) / 10;
 
                 var iconCode = response.weather[0].icon;
                 var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
@@ -35,7 +32,16 @@ var weather = weather || (function () {
                 html += '<h2>' + temp + '&deg;</h2><br>';
 
                 panel.innerHTML = html;
+            }).then(function () {
+                setTimeout(update, 30000);
             });
+    }
+
+    function attach(p) {
+
+        panel = p;
+
+        update();
     }
 
     return {
