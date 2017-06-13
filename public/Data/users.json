@@ -4,5 +4,5 @@
 {"id":2, "username":"Moshin", "guids":["db77d4e2-b3c3-4b62-b628-fa274a70a2d9"], "images":["./Data/Moshin.png"]},
 {"id":3, "username":"Doug", "guids":["608f00e1-80b6-4ca4-9ba5-76edf359657a"], "images":["./Data/Doug.jpg"]},
 {"id":4, "username":"Gareth", "guids":["2a775a9e-b059-4266-ad2b-4c74b691ea82"], "images":["./Data/Gareth.jpg"]},
-{"id":5, "username":"Yolanta", "guids":["91f9e152-60de-4d8e-9b1a-5ff8913c7b4b"], "images":["./Data/Yolanta.jpg"]},
+{"id":5, "username":"Yolanta", "guids":["91f9e152-60de-4d8e-9b1a-5ff8913c7b4b"], "images":["./Data/Yolanta.jpg"]}
 ]
