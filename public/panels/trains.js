@@ -2,10 +2,7 @@ var trains = trains || (function () {
 
     var panel;
 
-    function attach(p) {
-        panel = p;
-        panel.innerHTML = '<h5>Loading</h5>';
-
+    function update() {
         apis.transport.findStations('bath spa')
             .then(function (response) {
 
@@ -35,7 +32,16 @@ var trains = trains || (function () {
 
                         panel.innerHTML = html;
                     });
+            }).then(function () {
+                setTimeout(update, 10000);
             });
+    }
+
+    function attach(p) {
+        panel = p;
+        panel.innerHTML = '<h5>Loading</h5>';
+
+        update();
     }
 
     return {
