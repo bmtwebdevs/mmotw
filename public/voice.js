@@ -1,9 +1,36 @@
 var voice = voice || (function () {
     var hideTime;
     var feedbackSelector;
+    
+    function logit(results) {
+        console.log("You said:");
+        _(results[0]).forEach(function (result) {
+           console.log(result.transcript + ' (' + Math.round(result.confidence) * 100 + '%)'); 
+        });
+    }
 
     function voiceReceived(event) {
-        console.log('You said: ', event.results[0][0].transcript);
+
+        var said = event.results[0][0].transcript;
+
+        logit(event.results);
+        //console.log('You said: ', said);
+
+        if (said.indexOf('play') > -1) {
+            soundcloud.playIt();
+        }
+
+        if (said.indexOf('next') > -1) {
+            soundcloud.nextIt();
+        }
+
+        if (said.indexOf('previous') > -1) {
+            soundcloud.previousIt();
+        }
+
+        if (said.indexOf('stop') > -1) {
+            soundcloud.stopIt();
+        }
 
         hideTime = new Date();
         hideTime.setMilliseconds(hideTime.getMilliseconds() + 2990);
@@ -44,7 +71,7 @@ var voice = voice || (function () {
     }
 
     function triggerVoice(message) {
-        voiceReceived({ results: [[{ transcript: message }]] });
+        voiceReceived({ results: [[{ transcript: message, confidence: 1 }]] });
     }
 
     return {
