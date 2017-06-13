@@ -49,7 +49,7 @@ ul {
     padding: 16px;
     height: 400px;
     min-height: 400px;
-    overflow-y: hidden;
+    overflow: hidden;
     background-color: transparent;
     color: #fff;
 }
