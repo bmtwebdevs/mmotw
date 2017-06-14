@@ -75,7 +75,7 @@ users.forEach(function (user)
                 returnFaceId: true
             }).then(function (response)
             {
-                console.log(response);
+                console.log('user images', response);
                 if (response.length > 0)
                 {
                     image.timeOut = today.addDays(1);
@@ -96,7 +96,7 @@ function writeUsers()
     jsonfile.writeFile(file, users, function (err)
     {
         console.error(err);
-    })
+    });
 }
 
 
@@ -142,7 +142,7 @@ function takePicture()
                      })
                      .then(function (response)
                      {
-                         console.log(response);
+                         console.log('detect', response);
                          if (response.length > 0)
                          {
                              var faceId = response[0].faceId;

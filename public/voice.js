@@ -1,11 +1,11 @@
 var voice = voice || (function () {
     var hideTime;
     var feedbackSelector;
-    
+
     function logit(results) {
         console.log("You said:");
         _(results[0]).forEach(function (result) {
-           console.log(result.transcript + ' (' + Math.round(result.confidence) * 100 + '%)'); 
+           console.log(result.transcript + ' (' + Math.round(result.confidence) * 100 + '%)');
         });
     }
 
@@ -49,7 +49,7 @@ var voice = voice || (function () {
             if (now < hideTime) {
                 return;
             }
-            speechFeedback.classList.add('hidden');
+            //speechFeedback.classList.add('hidden');
         }, 3000);
     }
 

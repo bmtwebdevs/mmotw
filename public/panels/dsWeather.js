@@ -4,15 +4,11 @@ var dsWeather = dsWeather || (function () {
 
     function update() {
 
-
         if ("geolocation" in navigator) {
           /* geolocation is available */
           navigator.geolocation.getCurrentPosition(function(position) {
-            console.log(position);
 
             apis.local.getWeather(position).then(function (response) {
-
-                    console.log(response);
 
                     //Convert EPOCH date to human readable
                     var timestamp = response.dt;
