@@ -16,7 +16,8 @@ var oxford = require('project-oxford'),
 var NodeWebcam = require("node-webcam");
 var Linq = require('linq');
 var fs = require('fs');
-var sharp = require('sharp');
+var Jimp = require("jimp");
+
 
 
 var directory = "./public/Data/";
@@ -94,7 +95,7 @@ var opts =
 var Webcam = NodeWebcam.create(opts);
 
 takePicture();
-setInterval(takePicture, 20000);
+setInterval(takePicture, 11000);
 
 
 http.listen(3000, function ()
@@ -104,71 +105,71 @@ http.listen(3000, function ()
 
 function takePicture()
 {
-    var Jimp = require("jimp");
     var tmpDirectory = directory + 'tmp.JPG';
     Webcam.capture(tmpDirectory, function (err, data)
     {
-        Jimp.read(tmpDirectory, function (err, lenna) {
-            if (err) throw err;
-            lenna.resize(640, 480)            // resize 
-                 .quality(70)                 // set JPEG quality 
-                 .write(tmpDirectory); // save 
-        });
+        Jimp.read(data, function (err, lenna)
         {
-            console.log(err);
-            client.face.detect(
-            {
-                path: tmpDirectory,
-                returnFaceId: true
-            })
-            .then(function (response)
-            {
-                console.log(response);
-                if (response.length > 0)
-                {
-                    var faceId = response[0].faceId;
-                    client.face.similar(faceId,
-                    {
-                        candidateFaces: Linq.from(users).selectMany(function (x) { return x.images }).select(function (x) { return x.guid }).toArray()
-                    })
-                    .then(function (response)
-                    {
-                        console.log(response);
-                        if (response.length > 0 && response[0].confidence > .6)
-                        {
-                            var user = Linq.from(users).where(function (x) { return Linq.from(x.images).any(function (x) { return x.guid == response[0].faceId }) }).first();
-                            console.log(user);
-                            console.log("User verified as " + user.username + ".");
-                            io.sockets.emit('userVerified', user)
-                            if (user.images.length < 11 && response[0].confidence > .9)
-                            {
-                                var filename = user.username + user.images.length + '.JPG';
-                                fs.rename(tmpDirectory, directory + filename, function (err)
-                                {
-                                    if (err) console.log('ERROR: ' + err);
-                                });
-                                user.images.push({ "image": clientDirectory + filename, "guid": faceId, "timeOut" : new Date().addDays(1)});
-                                writeUsers();
-                            }
-                        }
-                        else
-                        {
-                            console.log("User not recognised");
-                            //prompt.start();
-                            //prompt.get([{ name: 'username', message: "Please enter new user name" }], function (err, result) {
-                            //    users.push({ id: users[users.length - 1].id + 1, username: result.name, guids: [faceId] });
-                            //});
-                            //jsonfile.writeFile(file, users, function (err) {
-                            //    console.error(err)
-                            //})
+            if (err) throw err;
+            lenna.resize(640, 480)
+                 .quality(70)
+                 .write(tmpDirectory, function (response)
+                 {
+                     console.log(err);
+                     client.face.detect(
+                     {
+                         path: tmpDirectory,
+                         returnFaceId: true
+                     })
+                     .then(function (response)
+                     {
+                         console.log(response);
+                         if (response.length > 0)
+                         {
+                             var faceId = response[0].faceId;
+                             client.face.similar(faceId,
+                             {
+                                 candidateFaces: Linq.from(users).selectMany(function (x) { return x.images }).select(function (x) { return x.guid }).toArray()
+                             })
+                             .then(function (response)
+                             {
+                                 console.log(response);
+                                 if (response.length > 0 && response[0].confidence > .6)
+                                 {
+                                     var user = Linq.from(users).where(function (x) { return Linq.from(x.images).any(function (x) { return x.guid == response[0].faceId }) }).first();
+                                     console.log(user);
+                                     console.log("User verified as " + user.username + ".");
+                                     io.sockets.emit('userVerified', user)
+                                     if (user.images.length < 11 && response[0].confidence > .9)
+                                     {
+                                         var filename = user.username + user.images.length + '.JPG';
+                                         fs.rename(tmpDirectory, directory + filename, function (err)
+                                         {
+                                             if (err) console.log('ERROR: ' + err);
+                                         });
+                                         user.images.push({ "image": clientDirectory + filename, "guid": faceId, "timeOut": new Date().addDays(1) });
+                                         writeUsers();
+                                     }
+                                 }
+                                 else
+                                 {
+                                     console.log("User not recognised");
+                                     //prompt.start();
+                                     //prompt.get([{ name: 'username', message: "Please enter new user name" }], function (err, result) {
+                                     //    users.push({ id: users[users.length - 1].id + 1, username: result.name, guids: [faceId] });
+                                     //});
+                                     //jsonfile.writeFile(file, users, function (err) {
+                                     //    console.error(err)
+                                     //})
 
-                        }
-                    }).catch((rejected) =>
-                    {
-                        console.log('rej: ' + rejected);
-                    });
-                }
-            });
-        }
+                                 }
+                             }).catch((rejected) =>
+                             {
+                                 console.log('rej: ' + rejected);
+                             });
+                         }
+                     });
+                 });
+        });
     });
 }
