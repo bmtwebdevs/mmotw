@@ -26,6 +26,15 @@ var file = './public/Data/users.json';
 //})
 var users = jsonfile.readFileSync(file);
 
+users.forEach(function(user) 
+{
+    var timeOuts = 'timeOuts';
+    if (!timeouts in user)
+    {
+        
+    }
+})
+
 
 var opts =
 {
