@@ -18,13 +18,12 @@ apis.travel = apis.travel || (function () {
             destination: destination,
             travelMode: 'DRIVING'
         }
-        //return apis.ajax.get(base + '?origin=' + origin + '&destination=' + destination +  '&' + creds
-        //).then(function (response) {
-        //    return JSON.parse(response);
-        //});
-        return directionsService.route(request, function (response, status) {
-                console.log(response);
-                return response;
+        return new Promise(function (resolve, reject)
+        {
+            return directionsService.route(request, function (response, status)
+            {
+                resolve(response);
+            });
         });
     }
 
