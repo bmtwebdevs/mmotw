@@ -7,7 +7,13 @@
 
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="styles/flexslider.css">
+	<link rel="stylesheet" href="css/timetablejs.css">
 	<link rel="stylesheet" type="text/css" href="styles/site.css">
+
+
+	<script src="lib/timetable.min.js"></script>
+
+
 
 	<script type="text/javascript" src="lib/sdk.js"></script>
 	<script type="text/javascript" src="soundcloud.js"></script>
@@ -34,11 +40,15 @@
 	<script type="text/javascript" src="panels/userprofile.js"></script>
 	<script type="text/javascript" src="panels/slider.js"></script>
 	<script type="text/javascript" src="panels/travel.js"></script>
+	<script type="text/javascript" src="panels/calendarPanel.js"></script>
+	<script type="text/javascript" src="panels/tasks.js"></script>
 
 	<!-- APP -->
 	<script type="text/javascript" src="voice.js"></script>
 	<script type="text/javascript" src="layout.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+
+
 
 </head>
 
@@ -60,3 +70,10 @@
 </body>
 
 </html>
+
+<script type="text/javascript" src="js/calendar.js"></script>
+
+<script async defer src="https://apis.google.com/js/api.js"
+ onload="this.onload=function(){};handleClientLoad()"
+ onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>

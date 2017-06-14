@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Calendar</title>
+    <meta charset='utf-8' />
+  </head>
+  <link rel="stylesheet" href="css/timetablejs.css">
+  <body>
+    <p>Google Calendar and Tasks</p>
+
+    <!--buttons to initiate auth sequence-->
+    <button id="authorize-button" style="display: none;">Authorize</button>
+
+    <div class="timetable"></div>
+
+    <pre id="content"></pre>
+  </body>
+
+    <script src="lib/timetable.min.js"></script>
+
+    <script type="text/javascript" src="js/calendar.js"></script>
+
+    <script async defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+
+</html>

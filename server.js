@@ -35,6 +35,15 @@ users.forEach(function (user)
     });
 });
 
+<<<<<<< HEAD
+users.forEach(function(user)
+{
+    var timeOuts = 'timeOuts';
+    if (!timeOuts in user)
+    {
+
+    }
+=======
 //https://stackoverflow.com/questions/563406/add-days-to-javascript-date
 Date.prototype.addDays = function (days) {
     var dat = new Date(this.valueOf());
@@ -65,6 +74,7 @@ users.forEach(function (user)
             }));
         }
     });
+>>>>>>> a56c49330800e0e2cf709e6439fd566d9d7ca849
 })
 
 Promise.all(promises).then(values =>
@@ -90,18 +100,18 @@ var opts =
     saveShots: true,
     output: "jpeg",
 
-    //Which camera to use 
-    //Use Webcam.list() for results 
-    //false for default device 
+    //Which camera to use
+    //Use Webcam.list() for results
+    //false for default device
 
     device: false,
-    // [location, buffer, base64] 
-    // Webcam.CallbackReturnTypes 
+    // [location, buffer, base64]
+    // Webcam.CallbackReturnTypes
 
     callbackReturn: "buffer",
     verbose: false
 };
-//Creates webcam instance 
+//Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
 
 takePicture();
