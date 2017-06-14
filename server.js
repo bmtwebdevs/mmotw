@@ -55,6 +55,15 @@ users.forEach(function (user)
     });
 });
 
+<<<<<<< HEAD
+users.forEach(function(user)
+{
+    var timeOuts = 'timeOuts';
+    if (!timeOuts in user)
+    {
+
+    }
+=======
 //https://stackoverflow.com/questions/563406/add-days-to-javascript-date
 Date.prototype.addDays = function (days) {
     var dat = new Date(this.valueOf());
@@ -85,7 +94,12 @@ users.forEach(function (user)
             }));
         }
     });
+<<<<<<< HEAD
 });
+=======
+>>>>>>> a56c49330800e0e2cf709e6439fd566d9d7ca849
+})
+>>>>>>> 85928288303850a8853faf730aba8dc32536a6f8
 
 Promise.all(promises).then(values =>
 {

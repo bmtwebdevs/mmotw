@@ -15,7 +15,7 @@ var time = time || (function () {
         var s = today.getSeconds();
         m = checkTime(m);
         s = checkTime(s);
-        panel.innerHTML = '<h2>' + h + ":" + m + ":" + s + '</h2>';
+        panel.innerHTML = '<font size="90">' + h + ":" + m + ":" + s + '</font>';
         var t = setTimeout(update, 500);
     }
 

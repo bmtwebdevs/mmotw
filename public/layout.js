@@ -17,9 +17,22 @@ var layout = layout || (function (d) {
         container.appendChild(panel);
     }
 
+    function addPanelSpecial(module, size) {
+
+      var panel = d.createElement("div");
+      panel.classList.add("panel");
+      panel.classList.add("pull-left");
+      panel.classList.add("col-sm-" + size);
+      module.attach(panel);
+
+      container.appendChild(panel);
+
+    }
+
     return {
         initialise: initialise,
-        addPanel: addPanel
+        addPanel: addPanel,
+        addPanelSpecial: addPanelSpecial
     };
 
 })(document);
