@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     layout.addPanel(time);
     layout.addPanel(userprofile);
     layout.addPanel(slider);
+    layout.addPanel(travel);
 
     voice.listen('.speech-feedback');
     voice.triggerVoice('Speak to me..');

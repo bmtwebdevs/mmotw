@@ -13,6 +13,7 @@ apis.ajax = apis.ajax || (function () {
         return new Promise(function (resolve, reject) {
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url + jsonToQueryString(params || {}));
+            xhr.setRequestHeader("Access-Control-Allow-Origin", "*")
             xhr.onload = function () {
                 if (this.status >= 200 && this.status < 300) {
                     resolve(xhr.response);
