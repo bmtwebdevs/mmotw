@@ -1,8 +1,1 @@
-[{"id":1,"username":"Naval",
-"guids":["a38ae7e1-8059-4724-b84e-312ff891d66d","09717c1f-da5b-403a-b18d-e324c56756ff","c24b9465-92e2-4750-b06d-8757201013eb","9598c244-3edf-4f37-be30-b307e6739b37","0af5b8b1-8696-4c7f-a7eb-cab7b0147967","c76b8eab-ae5f-4971-8caa-db52ca5dbd58","464d70ae-fd78-4d5b-af22-157c27129487","4c1df1bc-3553-40f0-9f40-2e04bb00f36c","f9434270-4f8a-4df1-9520-5105797cdab8","b6d76b09-169f-4e65-bb26-550cd30dd50e","3bf34310-b65c-4fae-b97e-cf0820150ee9"],
-"images":["./Data/Naval.JPG","./Data/Naval2.JPG","./Data/Naval3.JPG","./Data/Naval4.JPG","./Data/Naval6.JPG","./Data/Naval7.JPG","./Data/Naval8.JPG","./Data/Naval9.JPG"]},
-{"id":2, "username":"Moshin", "guids":["db77d4e2-b3c3-4b62-b628-fa274a70a2d9"], "images":["./Data/Moshin.png"]},
-{"id":3, "username":"Doug", "guids":["608f00e1-80b6-4ca4-9ba5-76edf359657a"], "images":["./Data/Doug.jpg"]},
-{"id":4, "username":"Gareth", "guids":["2a775a9e-b059-4266-ad2b-4c74b691ea82"], "images":["./Data/Gareth.jpg"]},
-{"id":5, "username":"Yolanta", "guids":["91f9e152-60de-4d8e-9b1a-5ff8913c7b4b"], "images":["./Data/Yolanta.jpg"]}
-]
+[{"id":1,"username":"Naval","images":[{"image":"./public/Data/Naval.JPG","timeOut":"2017-06-15T11:24:26.514Z","guid":"9bcf1ced-ee92-4ee9-b5e2-04d856c08a9f"}]},{"id":2,"username":"Moshin","images":[{"image":"./public/Data/Moshin.png","timeOut":"2017-06-15T11:24:26.529Z","guid":"c4087fc6-6095-4958-9425-5799c1c7ba21"}]},{"id":3,"username":"Doug","images":[{"image":"./public/Data/Doug.jpg","timeOut":"2017-06-15T11:24:26.531Z","guid":"bdb145ef-bf79-4dbf-8923-e96f2ac6b464"}]},{"id":4,"username":"Gareth","images":[{"image":"./public/Data/Gareth.jpg","timeOut":"2017-06-15T11:24:26.543Z","guid":"e8e9f829-8390-4028-afbf-21f4004c5922"}]},{"id":5,"username":"Yolanta","images":[{"image":"./public/Data/Yolanta.jpg","timeOut":"2017-06-15T11:24:26.550Z","guid":"13a69252-5dea-4691-925a-e7119ad2604a"}]}]
