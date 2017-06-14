@@ -12,7 +12,7 @@ var userprofile = userprofile || (function () {
         panel.innerHTML =
             '<h4>User Profile</h4> \
             <div class="thumbnail"> \
-                <img src= "' + data.images[0] + '" alt="' + data.username + '" class="img-circle">\
+                <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
             </div><!-- /thumbnail -->\
             <h1>' + data.username + '</h1>\
             <h3>Bristol, United Kingdom</h3>\
