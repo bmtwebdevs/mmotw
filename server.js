@@ -19,7 +19,9 @@ var Linq = require('linq');
 var prompt = require('prompt');
 var fs = require('fs');
 
-var file = './public/Data/users.json';
+var directory = "./public/Data/";
+var clientDirectory = "./Data";
+var file = directory + 'users.json';
 //var users = [{ id: 1, username: 'Naval', guids: ['a38ae7e1-8059-4724-b84e-312ff891d66d'], images: ['./Data/Naval.JPG'] }, { id: 2, username: "Gareth", guids: ['77dae8bf-64d3-445e-bd14-d45cb191dc39'] }];
 //jsonfile.writeFile(file, users, function (err) {
 //    console.error(err)
@@ -113,10 +115,10 @@ http.listen(3000, function ()
 
 function takePicture()
 {
-    Webcam.capture("./public/Data/tmp.JPG", function (err, data) {
+    Webcam.capture(directory +  'tmp.JPG', function (err, data) {
         (client.face.detect(
         {
-            path: './public/Data/tmp.JPG',
+            path: directory + '/tmp.JPG',
             returnFaceId: true
         }).then(function (response) {
             console.log(response);
@@ -136,12 +138,12 @@ function takePicture()
                         io.sockets.emit('userVerified', user)
                         if (user.images.length < 11 && response[0].confidence > .8)
                         {
-                            var filename = './public/Data/' + user.username + user.images.length + '.JPG';
-                            fs.rename('./public/Data/tmp.JPG', filename, function (err)
+                            var filename = user.username + user.images.length + '.JPG';
+                            fs.rename(directory + 'tmp.JPG', directory + filename, function (err)
                             {
                                 if (err) console.log('ERROR: ' + err);
                             });
-                            user.images.push({ "image": filename, "guid" : faceId });
+                            user.images.push({ "image": clientDirectory + filename, "guid" : faceId });
                             writeUsers();
                         }
                     }
