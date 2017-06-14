@@ -1,5 +1,6 @@
 body {
     background-color: #000;
+    padding-top: 10px;
 }
 
 ul {
@@ -13,4 +14,47 @@ ul {
 
 .bad {
     color: #f00;
+}
+
+.speech-feedback {
+    opacity: 1;     
+    -webkit-transition: opacity .8s ease-in-out;
+    -moz-transition: opacity .8s ease-in-out;
+    transition: opacity .8s ease-in-out;
+
+    line-height: 48px;
+    min-height: 48px;
+}
+
+.speech-feedback * {
+    vertical-align: middle;
+}
+
+.speech-feedback span {
+    font-size: 3em;
+    color: #fff;
+    min-height: 70px;
+}
+
+.speech-feedback img {
+    width: 40px;
+    height: 40px;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.panel {
+    padding: 16px;
+    height: 400px;
+    min-height: 400px;
+    overflow: hidden;
+    background-color: transparent;
+    color: #fff;
+}
+
+.thumbnail {
+    width:100px;
+    height:100px;
 }
