@@ -16,9 +16,9 @@ var time = time || (function () {
         m = checkTime(m);
         s = checkTime(s);
         
-        var year = today.getFullYear();       
+        var year1 = today.getFullYear();       
         
-        var date = today.getDate();
+        var date1 = today.getDate();
                 
         //days of week       
         var d = new Date();
@@ -34,7 +34,7 @@ var time = time || (function () {
         
         //months of year
         var month = today.getMonth() + 1;
-        var m = new Date();
+        var mo = new Date();
         var month = new Array();
         month[0] = "January";
         month[1] = "February";
@@ -48,10 +48,10 @@ var time = time || (function () {
         month[9] = "October";
         month[10] = "November";
         month[11] = "December";
-        var monthname = month[m.getMonth()];               
+        var monthname = month[mo.getMonth()];               
                     
         
-        panel.innerHTML = '<font size="90">' + dayname + ' ' + date + '-' + monthname + '-' + year + "<br>" + h + ":" + m + ":" + s + '</font>';       
+        panel.innerHTML = '<font size="90">' + dayname + ' ' + date1 + ' ' + monthname + ' ' + year1 + "<br>" + h + ":" + m + ":" + s + '</font>';       
         
         
         var t = setTimeout(update, 500);
