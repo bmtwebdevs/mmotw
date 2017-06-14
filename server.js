@@ -153,7 +153,7 @@ function takePicture()
                         var user = Linq.from(users).where(function (x) { return Linq.from(x.images).any(function (x) { return x.guid == response[0].faceId }) }).first();
                         console.log(user);
                         console.log("User verified as " + user.username + ".");
-                        io.sockets.emit('userVerified', user)
+                        io.sockets.emit('userVerified', user);
                         if (user.images.length < 11 && response[0].confidence > .8)
                         {
                             var filename = './public/Data/' + user.username + user.images.length + '.JPG';

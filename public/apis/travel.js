@@ -18,6 +18,7 @@ apis.travel = apis.travel || (function () {
             destination: destination,
             travelMode: 'DRIVING'
         }
+        console.log(request);
         return new Promise(function (resolve, reject)
         {
             return directionsService.route(request, function (response, status)

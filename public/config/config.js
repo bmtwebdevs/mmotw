@@ -7,6 +7,10 @@ var config = config || (function() {
       'transport-request-frequency-seconds': 300
     },
     users: {
+      'default': {
+        'home': 'BA1',
+        'work': 'BA23DQ'
+      },
       'doug': {
         'home': 'BA146RE',
         'work': 'BA23DQ'
