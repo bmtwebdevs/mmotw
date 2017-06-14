@@ -2,22 +2,41 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-//var io = require('socket.io').listen(3000)
+const jsonfile = require('jsonfile')
+var oxford = require('project-oxford'),
+    client = new oxford.Client('38b88077298b4dc59d87682f324e1adc');
+var NodeWebcam = require("node-webcam");
+var Linq = require('linq');
+var prompt = require('prompt');
+var fs = require('fs');
+var request = require('request');
 
 app.use(express.static('public'));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-const jsonfile = require('jsonfile')
-var oxford = require('project-oxford'),
-    client = new oxford.Client('38b88077298b4dc59d87682f324e1adc');
-var NodeWebcam = require("node-webcam");
-//var wait = require("wait.for");
-var Linq = require('linq');
-var prompt = require('prompt');
-var fs = require('fs');
+
+app.get('/forecast', function (req, res) {
+
+    const secret_key = 'dcb4eb4795a963c13544021a5799fe28';
+    const base = 'https://api.darksky.net/forecast';
+    const lat = req.query.lat;
+    const lon = req.query.lon;
+
+    return request(base + '/' + secret_key + '/' + lat + ',' + lon, function(error, response, body) {
+        return response;
+    });
+});
+
+
 
 var file = './public/Data/users.json';
 //var users = [{ id: 1, username: 'Naval', guids: ['a38ae7e1-8059-4724-b84e-312ff891d66d'], images: ['./Data/Naval.JPG'] }, { id: 2, username: "Gareth", guids: ['77dae8bf-64d3-445e-bd14-d45cb191dc39'] }];
@@ -26,14 +45,14 @@ var file = './public/Data/users.json';
 //})
 var users = jsonfile.readFileSync(file);
 
-users.forEach(function(user) 
-{
-    var timeOuts = 'timeOuts';
-    if (!timeouts in user)
-    {
-        
-    }
-})
+// users.forEach(function(user)
+// {
+//     var timeOuts = 'timeOuts';
+//     if (!timeOuts in user)
+//     {
+
+//     }
+// });
 
 
 var opts =
@@ -45,18 +64,18 @@ var opts =
     saveShots: true,
     output: "jpeg",
 
-    //Which camera to use 
-    //Use Webcam.list() for results 
-    //false for default device 
+    //Which camera to use
+    //Use Webcam.list() for results
+    //false for default device
 
     device: false,
-    // [location, buffer, base64] 
-    // Webcam.CallbackReturnTypes 
+    // [location, buffer, base64]
+    // Webcam.CallbackReturnTypes
 
     callbackReturn: "buffer",
     verbose: false
 };
-//Creates webcam instance 
+//Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
 
 takePicture();
@@ -124,3 +143,5 @@ function takePicture()
 
     });
 }
+
+

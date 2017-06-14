@@ -6,12 +6,13 @@ var travel = travel || (function () {
         panel = p;
         panel.innerHTML = '<h5>Loading</h5>';
 
-        var origin = 'BS1';
-        var destination = 'BA2 3DQ';
+        var origin = config[user].home;
+        //'BS1';
+        var destination = config[user].work;
+        //'BA2 3DQ';
         var response = apis.travel.getDirections(origin, destination)
             .then(function (response)
             {
-                console.log(response);
                 var time = response.routes[0].legs[0].duration.text;
                 var html = ' \
                             <h4>'+  origin + ' to ' + destination + ': ' + time + '</h4> \

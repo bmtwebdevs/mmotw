@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     layout.initialise(".container-fluid");
     layout.addPanel(trains);
-    layout.addPanel(weather);
+    layout.addPanel(dsWeather);
     layout.addPanel(time);
     layout.addPanel(userprofile);
     layout.addPanel(slider);
@@ -11,6 +11,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     voice.listen('.speech-feedback');
     voice.triggerVoice('Speak to me..');
-    
+
     faceClient.initialise();
 });
