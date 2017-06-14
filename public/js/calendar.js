@@ -33,9 +33,9 @@ function initClient() {
 
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    authorizeButton.onclick = handleAuthClick;
+    //authorizeButton.onclick = handleAuthClick;
     //signoutButton.onclick = handleSignoutClick;
-    //timeTableDisplay_init();
+
   });
 }
 
@@ -54,13 +54,13 @@ function updateSigninStatus(isSignedIn) {
   end = (new Date(end)).toISOString();
 
   if (isSignedIn) {
-    authorizeButton.style.display = 'none';
+    //authorizeButton.style.display = 'none';
     //signoutButton.style.display = 'block';
 
     listCalendarEvents(start, end);
     listTasks();
   } else {
-    authorizeButton.style.display = 'block';
+    //authorizeButton.style.display = 'block';
     //signoutButton.style.display = 'none';
   }
 }
@@ -86,7 +86,7 @@ function handleSignoutClick(event) {
  * @param {string} message Text to be placed in pre element.
  */
 function appendPre(message) {
-  var pre = document.getElementById('content');
+  var pre = document.getElementById('tasks-content');
   var textContent = document.createTextNode(message + '\n');
   pre.appendChild(textContent);
 }
@@ -125,7 +125,7 @@ function listCalendarEvents(start, end) {
         if (!whenEnd) {
           whenEnd = event.end.date;
         }
-        
+
         var dayIndex = new Date(whenStart).getDay();
         timetable.addEvent(event.summary, days[dayIndex], new Date(whenStart), new Date(whenEnd));
         //appendPre(event.summary + ' (' + when + ')')
@@ -144,13 +144,13 @@ function listTasks(){
   gapi.client.tasks.tasks.list({
   'tasklist': '@default'
   }).then(function(response) {
-    //console.log(response);
-    appendPre('Tasks:');
+    //console.log(response)
     var taskLists = response.result.items;
     if (taskLists && taskLists.length > 0) {
       for (var i = 0; i < taskLists.length; i++) {
         var taskList = taskLists[i];
-        if (taskList.title != "") appendPre(taskList.title +":" +taskList.status);
+        //if (taskList.title != "") appendPre(taskList.title +":" +taskList.status);
+        if (taskList.title != "") appendPre(taskList.title);
       }
     } else {
       appendPre('No task lists found.');

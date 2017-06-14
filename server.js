@@ -26,12 +26,12 @@ var file = './public/Data/users.json';
 //})
 var users = jsonfile.readFileSync(file);
 
-users.forEach(function(user) 
+users.forEach(function(user)
 {
     var timeOuts = 'timeOuts';
-    if (!timeouts in user)
+    if (!timeOuts in user)
     {
-        
+
     }
 })
 
@@ -45,18 +45,18 @@ var opts =
     saveShots: true,
     output: "jpeg",
 
-    //Which camera to use 
-    //Use Webcam.list() for results 
-    //false for default device 
+    //Which camera to use
+    //Use Webcam.list() for results
+    //false for default device
 
     device: false,
-    // [location, buffer, base64] 
-    // Webcam.CallbackReturnTypes 
+    // [location, buffer, base64]
+    // Webcam.CallbackReturnTypes
 
     callbackReturn: "buffer",
     verbose: false
 };
-//Creates webcam instance 
+//Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
 
 takePicture();

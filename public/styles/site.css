@@ -17,7 +17,7 @@ ul {
 }
 
 .speech-feedback {
-    opacity: 1;     
+    opacity: 1;
     -webkit-transition: opacity .8s ease-in-out;
     -moz-transition: opacity .8s ease-in-out;
     transition: opacity .8s ease-in-out;
@@ -57,4 +57,39 @@ ul {
 .thumbnail {
     width:100px;
     height:100px;
+}
+
+/*timetable*/
+.timetable aside {
+    font-size:11px;
+    width: 10%;
+}
+.timetable section {
+    width: 90%;
+    padding: 0!important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch
+}
+.timetable aside li {
+    padding: 0 15px;
+    background-color: grey;
+    height: 30px
+}
+.timetable time li {
+    height: 30px
+}
+.timetable .time-entry {
+    height: 30px
+}
+.timetable ul.room-timeline li {
+    background-color: grey
+}
+.timetable ul.room-timeline li:nth-of-type(odd) {
+    background-color: 	#A9A9A9
+}
+pre {
+  background-color: 	black;
+  color: white;
+  font-size: 14px;
+
 }
