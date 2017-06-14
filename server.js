@@ -2,14 +2,6 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-//var io = require('socket.io').listen(3000)
-
-app.use(express.static('public'));
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
-
 const jsonfile = require('jsonfile')
 var oxford = require('project-oxford'),
     client = new oxford.Client('38b88077298b4dc59d87682f324e1adc');
@@ -18,6 +10,34 @@ var finish = require("finish");
 var Linq = require('linq');
 var prompt = require('prompt');
 var fs = require('fs');
+var request = require('request');
+
+app.use(express.static('public'));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+
+app.get('/forecast', function (req, res) {
+
+    const secret_key = 'dcb4eb4795a963c13544021a5799fe28';
+    const base = 'https://api.darksky.net/forecast';
+    const lat = req.query.lat;
+    const lon = req.query.lon;
+
+    return request(base + '/' + secret_key + '/' + lat + ',' + lon, function(error, response, body) {
+        return response;
+    });
+});
+
+
 
 var directory = "./public/Data/";
 var clientDirectory = "./Data";
@@ -35,15 +55,6 @@ users.forEach(function (user)
     });
 });
 
-<<<<<<< HEAD
-users.forEach(function(user)
-{
-    var timeOuts = 'timeOuts';
-    if (!timeOuts in user)
-    {
-
-    }
-=======
 //https://stackoverflow.com/questions/563406/add-days-to-javascript-date
 Date.prototype.addDays = function (days) {
     var dat = new Date(this.valueOf());
@@ -74,8 +85,9 @@ users.forEach(function (user)
             }));
         }
     });
->>>>>>> a56c49330800e0e2cf709e6439fd566d9d7ca849
+});
 })
+
 
 Promise.all(promises).then(values =>
 {
@@ -145,7 +157,7 @@ function takePicture()
                         var user = Linq.from(users).where(function (x) { return Linq.from(x.images).any(function (x) { return x.guid == response[0].faceId }) }).first();
                         console.log(user);
                         console.log("User verified as " + user.username + ".");
-                        io.sockets.emit('userVerified', user)
+                        io.sockets.emit('userVerified', user);
                         if (user.images.length < 11 && response[0].confidence > .8)
                         {
                             var filename = user.username + user.images.length + '.JPG';
@@ -170,10 +182,12 @@ function takePicture()
 
                     }
                 }).catch((rejected) => {
-                    console.log('rej: ' + rejected);
+                    console.log('rej: ', rejected);
                 });
             }
         }));
 
     });
 }
+
+

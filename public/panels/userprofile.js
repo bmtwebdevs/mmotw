@@ -1,9 +1,14 @@
 var userprofile = userprofile || (function () {
 
     var panel;
+    var user;
+
+    function getUsername() {
+        return user && user.username.toLowerCase();
+    }
 
     function userVerified(data) {
-
+        user = data;
         panel.innerHTML =
             '<h4>User Profile</h4> \
             <div class="thumbnail"> \
@@ -20,11 +25,12 @@ var userprofile = userprofile || (function () {
 
         panel.innerHTML = "<h4>Detecting profile...</h4>";
 
-        faceClient.addEventListener(userVerified)
+        faceClient.addEventListener(userVerified);
     }
 
     return {
-        attach: attach
+        attach: attach,
+        getUsername: getUsername
     };
 
 })();

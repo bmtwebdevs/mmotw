@@ -2,6 +2,8 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     layout.initialise(".container-fluid");
+    layout.addPanel(trains);
+    layout.addPanel(dsWeather);
     layout.addPanel(userprofile);
     layout.addPanel(weather);
     layout.addPanel(time);
