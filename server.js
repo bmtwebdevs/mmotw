@@ -86,7 +86,6 @@ users.forEach(function (user)
         }
     });
 });
-})
 
 
 Promise.all(promises).then(values =>
