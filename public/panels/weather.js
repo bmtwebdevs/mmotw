@@ -15,7 +15,7 @@ var weather = weather || (function () {
                 var day = dateTime.getDate();
                 var dateTime1 = day + '-' + month + '-' + year;
 
-                var html = '<h4>Weather - Bristol</h4>';
+                var html = '<h4>Weather - Bath</h4>';
 
                 var tempConvert = parseInt(response.main.temp) - 273.15;
                 var temp = Math.round(tempConvert * 10) / 10;
@@ -27,7 +27,7 @@ var weather = weather || (function () {
 
                 html += '<h3>' + response.weather[0].main + '</h3>';
 
-                html += '<div><img src="' + iconUrl + '"/></div>';
+                html += '<div><img src="' + iconUrl + '" width=150 height=150/></div>';
 
                 html += '<h2>' + temp + '&deg;</h2><br>';
 
