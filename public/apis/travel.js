@@ -5,20 +5,13 @@ apis.travel = apis.travel || (function () {
     const base = 'https://maps.googleapis.com/maps/api/directions/json';
     const creds = 'key=' + app_key;
 
-    function getDirections(origin, destination) {
-        //return  gapi.client.request({
-        //    'path': base,
-        //    'params': { 'origin': origin, 'destination' : destination }
-        //}).then(function (response) {
-        //    return JSON.parse(response);
-        //});
+    function getDirections(origin, destination, travel_mode) {
         var directionsService = new google.maps.DirectionsService();
         var request = {
             origin: origin,
             destination: destination,
-            travelMode: 'DRIVING'
+            travelMode: travel_mode
         }
-        console.log(request);
         return new Promise(function (resolve, reject)
         {
             return directionsService.route(request, function (response, status)

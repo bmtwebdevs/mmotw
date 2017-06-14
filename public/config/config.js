@@ -9,23 +9,33 @@ var config = config || (function() {
     users: {
       'default': {
         'home': 'BA1',
-        'work': 'BA23DQ'
+        'work': 'BA23DQ',
+        'travel_mode': 'DRIVING'
       },
       'doug': {
         'home': 'BA146RE',
-        'work': 'BA23DQ'
+        'work': 'BA23DQ',
+        'travel_mode': 'WALKING'
       },
       'gareth': {
-        'work': 'BA23DQ'
+        'home': 'BA1',
+        'work': 'BA23DQ',
+        'travel_mode': 'DRIVING'
       },
       'naval': {
-        'work': 'BA23DQ'
+        'home': 'BA1',
+        'work': 'BA23DQ',
+        'travel_mode': 'DRIVING'
       },
       'moshin': {
-        'work': 'BA23DQ'
+        'home': 'BA1',
+        'work': 'BA23DQ',
+        'travel_mode': 'DRIVING'
       },
       'yolanta': {
-        'work': 'BA23DQ'
+        'home': 'BA1',
+        'work': 'BA23DQ',
+        'travel_mode': 'DRIVING'
       }
     }
   };
