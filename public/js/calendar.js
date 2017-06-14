@@ -44,11 +44,20 @@ function initClient() {
  *  appropriately. After a sign-in, the API is called.
  */
 function updateSigninStatus(isSignedIn) {
+  var today = new Date(); var start = new Date(); var end = new Date();
+  start = new Date(start.setHours(1));
+  start = start.setDate(today.getDate() - (today.getDay()));
+  start = (new Date(start)).toISOString();
+
+  end = new Date(end.setHours(23));
+  end = end.setDate(today.getDate() + (6 - today.getDay()));
+  end = (new Date(end)).toISOString();
+
   if (isSignedIn) {
     authorizeButton.style.display = 'none';
     //signoutButton.style.display = 'block';
-    today = new(Date);
-    listCalendarEvents();
+
+    listCalendarEvents(start, end);
     listTasks();
   } else {
     authorizeButton.style.display = 'block';
@@ -82,32 +91,24 @@ function appendPre(message) {
   pre.appendChild(textContent);
 }
 
-function timeTableDisplay_init(){
-  var timetable = new Timetable();
-  timetable.setScope(9, 17);
-  timetable.addLocations(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']);
-  timetable.addEvent('Frankadelic', 'Monday', new Date(2015,7,17,10,45), new Date(2015,7,17,12,30));
-  var renderer = new Timetable.Renderer(timetable);
-  renderer.draw('.timetable');
-}
-
 /**
  * Print the summary and start datetime/date of the next ten events in
  * the authorized user's calendar. If no events are found an
  * appropriate message is printed.
  */
-function listCalendarEvents() {
+function listCalendarEvents(start, end) {
   gapi.client.calendar.events.list({
     'calendarId': 'primary',
-    'timeMin': (new Date()).toISOString(),
+    'timeMin': start,
+    'timeMax': end,
     'showDeleted': false,
     'singleEvents': true,
-    'maxResults': 10,
+    'maxResults': 100,
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
-    console.log(response);
-    appendPre('Upcoming events:');
+    //console.log(response);
+    //appendPre('Upcoming events:');
 
     if (events.length > 0) {
       var timetable = new Timetable();
@@ -124,7 +125,7 @@ function listCalendarEvents() {
         if (!whenEnd) {
           whenEnd = event.end.date;
         }
-        //console.log(when);
+        
         var dayIndex = new Date(whenStart).getDay();
         timetable.addEvent(event.summary, days[dayIndex], new Date(whenStart), new Date(whenEnd));
         //appendPre(event.summary + ' (' + when + ')')
