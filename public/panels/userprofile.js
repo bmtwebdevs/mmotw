@@ -10,8 +10,7 @@ var userprofile = userprofile || (function () {
     function userVerified(data) {
         user = data;
         panel.innerHTML =
-            '<h4>User Profile</h4> \
-            <div class="thumbnail"> \
+            '<div class="thumbnail"> \
                 <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
             </div><!-- /thumbnail -->\
             <h1>' + data.username + '</h1>\

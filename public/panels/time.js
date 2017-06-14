@@ -14,13 +14,12 @@ var time = time || (function () {
         var m = today.getMinutes();
         var s = today.getSeconds();
         m = checkTime(m);
-        s = checkTime(s);
-        
-        var year1 = today.getFullYear();       
-        
+
+        var year1 = today.getFullYear();
+
         var date1 = today.getDate();
-                
-        //days of week       
+
+        //days of week
         var d = new Date();
         var weekday = new Array(7);
         weekday[0] =  "Sunday";
@@ -31,7 +30,7 @@ var time = time || (function () {
         weekday[5] = "Friday";
         weekday[6] = "Saturday";
         var dayname = weekday[d.getDay()];
-        
+
         //months of year
         var month = today.getMonth() + 1;
         var mo = new Date();
@@ -48,15 +47,15 @@ var time = time || (function () {
         month[9] = "October";
         month[10] = "November";
         month[11] = "December";
-        var monthname = month[mo.getMonth()];               
-                    
-        
-        panel.innerHTML = '<font size="90">' + dayname + ' ' + date1 + ' ' + monthname + ' ' + year1 + "<br>" + h + ":" + m + ":" + s + '</font>';       
-        
-        
-        var t = setTimeout(update, 500);
-        
-        
+        var monthname = month[mo.getMonth()];
+
+        var html = '<p class="time">' + h + ":" + m + '</p>';
+        html += '<p class="date">' + dayname + ' ' + date1 + ' ' + monthname + ' ' + year1 + '</p>';
+        panel.innerHTML = html;
+
+        var t = setTimeout(update, 30000);
+
+
     }
 
     function attach(p) {

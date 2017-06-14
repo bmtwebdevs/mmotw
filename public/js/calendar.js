@@ -144,7 +144,6 @@ function listTasks(){
   gapi.client.tasks.tasks.list({
   'tasklist': '@default'
   }).then(function(response) {
-    //console.log(response)
     var taskLists = response.result.items;
     if (taskLists && taskLists.length > 0) {
       for (var i = 0; i < taskLists.length; i++) {
