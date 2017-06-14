@@ -14,13 +14,11 @@ const jsonfile = require('jsonfile')
 var oxford = require('project-oxford'),
     client = new oxford.Client('38b88077298b4dc59d87682f324e1adc');
 var NodeWebcam = require("node-webcam");
-var finish = require("finish");
 var Linq = require('linq');
-var prompt = require('prompt');
 var fs = require('fs');
 
 var directory = "./public/Data/";
-var clientDirectory = "./Data";
+var clientDirectory = "./Data/";
 var file = directory + 'users.json';
 //var users = [{ id: 1, username: 'Naval', guids: ['a38ae7e1-8059-4724-b84e-312ff891d66d'], images: ['./Data/Naval.JPG'] }, { id: 2, username: "Gareth", guids: ['77dae8bf-64d3-445e-bd14-d45cb191dc39'] }];
 //jsonfile.writeFile(file, users, function (err) {
@@ -52,7 +50,7 @@ users.forEach(function (user)
         {
             promises.push(client.face.detect(
             {
-                path: image.image,
+                path:  'public' + image.image,
                 returnFaceId: true
             }).then(function (response)
             {
@@ -85,20 +83,12 @@ var opts =
 {
     width: 640,
     height: 480,
-    quality: 50,
+    quality: 10,
     delay: 0,
     saveShots: true,
     output: "jpeg",
-
-    //Which camera to use 
-    //Use Webcam.list() for results 
-    //false for default device 
-
     device: false,
-    // [location, buffer, base64] 
-    // Webcam.CallbackReturnTypes 
-
-    callbackReturn: "buffer",
+    callbackReturn: "location",
     verbose: false
 };
 //Creates webcam instance 
