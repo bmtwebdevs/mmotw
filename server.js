@@ -2,14 +2,6 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-//var io = require('socket.io').listen(3000)
-
-app.use(express.static('public'));
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/public/index.html');
-});
-
 const jsonfile = require('jsonfile')
 var oxford = require('project-oxford'),
     client = new oxford.Client('38b88077298b4dc59d87682f324e1adc');
@@ -17,6 +9,32 @@ var NodeWebcam = require("node-webcam");
 var Linq = require('linq');
 var fs = require('fs');
 var Jimp = require("jimp");
+var request = require('request');
+
+app.use(express.static('public'));
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+
+app.get('/forecast', function (req, res) {
+
+    const secret_key = 'dcb4eb4795a963c13544021a5799fe28';
+    const base = 'https://api.darksky.net/forecast';
+    const lat = req.query.lat;
+    const lon = req.query.lon;
+
+    return request(base + '/' + secret_key + '/' + lat + ',' + lon, function(error, response, body) {
+        return response;
+    });
+});
 
 
 
@@ -66,7 +84,7 @@ users.forEach(function (user)
             }));
         }
     });
-})
+});
 
 Promise.all(promises).then(values =>
 {
@@ -88,10 +106,11 @@ var opts =
     saveShots: true,
     output: "jpeg",
     device: false,
+    device: false,
     callbackReturn: "buffer",
     verbose: false
 };
-//Creates webcam instance 
+//Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
 
 takePicture();
@@ -108,10 +127,10 @@ function takePicture()
     var tmpDirectory = directory + 'tmp.JPG';
     Webcam.capture(tmpDirectory, function (err, data)
     {
-        Jimp.read(data, function (err, lenna)
+        Jimp.read(data, function (err, tmp)
         {
             if (err) throw err;
-            lenna.resize(640, 480)
+            tmp.resize(640, 480)
                  .quality(70)
                  .write(tmpDirectory, function (response)
                  {
@@ -173,3 +192,5 @@ function takePicture()
         });
     });
 }
+
+
