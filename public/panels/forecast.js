@@ -83,11 +83,11 @@ var forecast = forecast || (function () {
                    
                    html += '<li>';
                    
-                   html += '<p>' + day[0].dayname + '</p>';
+                   html += '<p class="title">' + day[0].dayname + '</p>';
                    
                    day.forEach(function(timeForecast) {
                        
-                      html += '<p>' + timeForecast.hours + ':' + timeForecast.mins + ' ' + timeForecast.temp + '&deg;' + timeForecast.icon + '</p>';   
+                      html += '<p class="tempforecast">' + timeForecast.hours + ':' + timeForecast.mins + '&nbsp;&nbsp;&nbsp;' + timeForecast.temp + '&deg;' + timeForecast.icon + '</p>';   
                        
                    });
                    
@@ -95,54 +95,7 @@ var forecast = forecast || (function () {
                    
                    html += '</li>'
                     
-                });
-                
-                //console.log(orderedForecastData);                  
-                
-                //  response.list.forEach(function(item){
-                     
-                //     //days of week
-                //     var timestamp = new Date (item.dt_txt);
-                    
-                //     var weekday = new Array(7);
-                //     weekday[0] =  "Sunday";
-                //     weekday[1] = "Monday";
-                //     weekday[2] = "Tuesday";
-                //     weekday[3] = "Wednesday";
-                //     weekday[4] = "Thursday";
-                //     weekday[5] = "Friday";
-                //     weekday[6] = "Saturday";
-                //     var dayname = weekday[timestamp.getDay()];
-                
-                //     var forecastDate = new Date(item.dt_txt);
-                //     var h = forecastDate.getHours();
-                //     var m = forecastDate.getMinutes();
-                //     h = checkTime(h);
-                //     m = checkTime(m);    
-                       
-                //     var tempConvert = parseInt(item.main.temp) - 273.15;
-                //     var temp = Math.round(tempConvert * 10) / 10;                                 
-                        
-                //     var iconCode = response.list[0].weather[0].icon;
-
-                //     var prefix = 'wi wi-';
-                //     var code = response.list[0].weather[0].id;
-                //     var icon = weatherIcons[code].icon;
-
-                //     //If we are not in the ranges mentioned above, add a day/night prefix.
-                //     if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-                //         icon = 'day-' + icon;
-                //     }
-
-                //     //Finally tack on the prefix.
-                //     icon = prefix + icon;
-
-                //     var icon = '<i class="' + icon + '" ></i>';                                        
-                    
-                //      html += '<li>' + '<p>' + dayname + '</p>' + h + ':' + m + ' ' + temp + '&deg;' + icon + '</li>';                                                                        
-                    
-                    
-                //  })
+                });               
                  
                  html += '</ul>';
                  html += '</div>';                 
@@ -151,19 +104,14 @@ var forecast = forecast || (function () {
                 startSlider();   
             }).then(function () {
                 setTimeout(update, 30000);
-            });
-            
-            
-            
+            });                                    
             
     }
-
 
     function attach(p) {
 
         panel = p;
-        update();
-           
+        update();           
                 
     }
     
