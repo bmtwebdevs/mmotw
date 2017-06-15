@@ -92,12 +92,6 @@ ul {
 .timetable ul.room-timeline li:nth-of-type(odd) {
     background-color: 	#A9A9A9
 }
-pre {
-  background-color: 	black;
-  color: white;
-  font-size: 14px;
-
-}
 /* Time panel */
 .time {
     font-size: 72px;
@@ -113,14 +107,31 @@ pre {
 
 .title {
     font-size: 32px;
+    color: #fff;
+    display: inline-block;
 }
 
-.journey {
+.journey_details {
     color: #ccc;
     font-size: 18px;
 }
 
+.journey {
+    color: #0f0;
+    font-size: 24px;
+}
+
+.travelIcon {
+    display: inline-block;
+    margin-right: 1em;
+}
+
 /* Weather panel */
+
+.textContainer {
+  display: inline-block;
+  width: 50%;
+}
 
 .title {
     font-size: 32px;
@@ -135,24 +146,22 @@ pre {
     font-size: 72px;
 }
 
-
 .tempforecast {
     font-size: 18px;
 }
 
-
-.weatherIcon {
-    width: 150px;
-    height: 150px;
-}
-
-.wi {
-    margin-left: 2em;
+.iconContainer {
+    width: 50%;
+    display: inline-block;
+    font-size: 72px;
+    text-align: center;
 }
 
 /* user profile */
 .username {
-    font-size: 48px;
+    font-size: 72px;
+    text-align: right;
+    display: inline-block;
 }
 
 .location {
@@ -165,4 +174,13 @@ pre {
     height:100px;
     background-color: transparent;
     border: none;
+    display: block;
+    margin-bottom: 0;
+}
+
+/* tasks panel */
+
+#tasks-content {
+    font-size: 24px;
+    color: #ccc;
 }

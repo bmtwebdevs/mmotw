@@ -17,26 +17,27 @@ var travel = travel || (function () {
                 var travelIcon = '';
                 switch (travel_mode) {
                     case 'DRIVING':
-                        travelIcon = '<i class="fa fa-5x fa-car" aria-hidden="true"></i>';
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-car" aria-hidden="true"></i></div>';
                         break;
                     case 'WALKING':
-                        travelIcon = '<i class="fa fa-5x fa-male" aria-hidden="true"></i>';
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-male" aria-hidden="true"></i></div>';
                         break;
                     default:
                         break;
                 }
                 var time = response.routes[0].legs[0].duration.text;
-                var html = '<p class="title">Your journey to work </p>';
-                    html += '<p class="journey">' + journey.start_address + ' to<br/> ' + journey.end_address + '</p>';
+                var html =  travelIcon;
+                    html += '<p class="title">Your journey</p>';
+                    html += '<p class="journey_details">From: ' + journey.start_address + '<br/>To: ' + journey.end_address + '</p>';
                     html += '<p class="journey">'+ distance + ' will take ' + duration + '</p>';
-                    html += travelIcon;
+
                 panel.innerHTML = html;
         });
     }
 
     function attach(p) {
         panel = p;
-        panel.innerHTML = '<h5>Loading</h5>';
+        panel.innerHTML = '<h4>Finding journey...</h4>';
 
         faceClient.addEventListener(update);
 

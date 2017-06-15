@@ -3,25 +3,27 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     layout.initialise(".container-fluid");
     layout.addRow();
-    layout.addPanel(userprofile);
+    layout.addPanel(time, { height: '220px' });
+    layout.addPanel(blank, { height: '220px' });
+    layout.addPanel(userprofile, { height: '220px' });
+
+
+    layout.addRow();
+    layout.addPanel(weather, { height: '210px' });
+    layout.addPanel(blank, { height: '250px' });
+    layout.addPanel(travel, { height: '250px' });
+
+    layout.addRow();
+    layout.addPanel(forecast);
+    //layout.addPanel(trains);
     layout.addPanel(blank);
-    layout.addPanel(time, { height: '200px' });
-
-    layout.addRow();
-    layout.addPanel(weather, { height: '200px', 'min-height': '200px' });
-    layout.addPanel(forecast, { height: '200px', 'min-height': '200px' });
-    layout.addPanel(travel);
-
-    layout.addRow();
-    layout.addPanel(trains);
-//    layout.addPanel(dsWeather);
+    layout.addPanel(tasks);
 
     layout.addRow();
     layout.addPanel(calendarPanel, { size: 8 });
-    layout.addPanel(tasks);
 
     voice.listen('.speech-feedback');
-    voice.triggerVoice('Speak to me..');
+    voice.triggerVoice('Talk to me..');
 
     faceClient.initialise();
 });

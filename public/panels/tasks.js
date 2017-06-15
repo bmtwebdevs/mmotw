@@ -2,14 +2,14 @@ var tasks = tasks || (function () {
 
     var panel;
 
-    function appendPre(message) {
+    function append(message) {
       var pre = document.getElementById('tasks-content');
       var textContent = document.createTextNode(message + '\n');
       pre.appendChild(textContent);
     }
 
     function update() {
-      var html = '<h4>Tasks</h4>';
+      var html = '<p class="title">Tasks</p>';
       const today = new Date(); var start = new Date(); var end = new Date();
       start = new Date(start.setHours(1));
       start = start.setDate(today.getDate() - (today.getDay()));
@@ -26,23 +26,24 @@ var tasks = tasks || (function () {
       //const access_token = "ya29.GlxqBFNI3-BgcD39gLHDPid8ukyBGjYvJijxsxbk5YITYaWyyjgoUFJwCVrWHcoYoEeLxARi5PBq3bNEK_DsYrBbSOKb_LjzyI8Ia1G0IrKZT006KN1xBM4IAlORRQ";
 
       if (access_token) {
-        html += '<pre id="tasks-content"></pre>';
+        html += '<div id="tasks-content"></div>';
         apis.tasks.getTasks(start, end, access_token)
             .then(function (response) {
-              console.log(response);
               var taskLists = response.items;
               if (taskLists && taskLists.length > 0) {
                 for (var i = 0; i < taskLists.length; i++) {
                   var taskList = taskLists[i];
                   console.log(taskList);
                   const days =['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                  if (taskList.title != "") appendPre(taskList.title +" DUE: " + days[new Date(taskList.due).getDay()]);
+                  if (taskList.title != "") append(taskList.title +" DUE: " + days[new Date(taskList.due).getDay()]);
                 }
               } else {
-                appendPre('No task lists found.');
+                append('No task lists found.');
               }
         });
-      } else html += '<p>No task lists found.</p>';
+      } else {
+        html += '<p>No task lists found.</p>';
+      }
       panel.innerHTML = html;
     }
 

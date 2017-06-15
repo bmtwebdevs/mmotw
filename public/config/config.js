@@ -15,7 +15,7 @@ var config = config || (function() {
       'doug': {
         'home': 'BA146RE',
         'work': 'BA23DQ',
-        'travel_mode': 'WALKING',
+        'travel_mode': 'DRIVING',
         'gapis_access_token': 'ya29.GltqBOsbrrW6-GZGzgSv7UO-GG3drNs7Ho5AmHcyA_XYLqzojVWmXohKer9dOgp0TfXqaEg8yP8waOfepd-8jp1ki6AbLMP-zGZul4eOyFR78GeqJeLsvXYXF3pc'
       },
       'gareth': {

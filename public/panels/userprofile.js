@@ -9,16 +9,11 @@ var userprofile = userprofile || (function () {
 
     function userVerified(data) {
         user = data;
-        apis.position.getCurrentLocation(function(location) {
-
-            panel.innerHTML =
-                '<div class="thumbnail"> \
-                    <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
-                </div><!-- /thumbnail -->\
-                <p class="username">' + data.username + '</p>\
-                <p class="location">' + location.address + '</p>\
-                </div>';
-        });
+        var html = '<div class="thumbnail"> \
+                <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
+            </div>';
+        html += '<p class="username">' + data.username + '</p>';
+        panel.innerHTML = html;
 
     }
 

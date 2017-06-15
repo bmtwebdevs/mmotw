@@ -50,7 +50,7 @@ var time = time || (function () {
         var monthname = month[mo.getMonth()];
 
         var html = '<p class="time">' + h + ":" + m + '</p>';
-        html += '<p class="date">' + dayname + ' ' + date1 + ' ' + monthname + ' ' + year1 + '</p>';
+        html += '<p class="date">' + dayname + '<br/> ' + date1 + ' ' + monthname + ' ' + year1 + '</p>';
         panel.innerHTML = html;
 
         var t = setTimeout(update, 30000);
