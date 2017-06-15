@@ -105,7 +105,7 @@ var Webcam = NodeWebcam.create(opts);
 var currentUser;
 
 takePicture();
-setInterval(takePicture, 2000);
+setInterval(takePicture, 5000);
 
 http.listen(3000, function ()
 {
@@ -117,6 +117,9 @@ function takePicture()
     var tmpDirectory = directory + 'tmp.JPG';
     Webcam.capture(tmpDirectory, function (err, data)
     {
+        if(!currentUser) {
+          io.sockets.emit('speech', 'I\'m looking for you through my webcam, please wait for recognition');
+        }
         Jimp.read(data, function (err, tmp)
         {
             if (err) { console.log('woot', err); };
@@ -153,6 +156,7 @@ function takePicture()
                                      if(currentUser !== user.username) {
                                         console.log("Emitting new user " + user.username);
                                         io.sockets.emit('userVerified', user);
+                                        io.sockets.emit('speech', 'Welcome to the magic mirror ' + user.username);
                                         currentUser = user.username;
                                      }
 
@@ -169,7 +173,10 @@ function takePicture()
                                  }
                                  else
                                  {
-                                     console.log("User not recognised");
+                                     if(!currentUser) {
+                                       io.sockets.emit('speech', 'I\'ve not recognised a user, make sure you\'re right where I can see you');
+                                     }
+                                     //console.log("User not recognised");
                                  }
                              }).catch((rejected) =>
                              {
