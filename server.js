@@ -35,6 +35,31 @@ app.get('/forecast', function (req, res) {
     });
 });
 
+app.get('/spotify-authenticate', function (req, res) {
+
+    const client_id = 'ff02d75635f6498ab671f95db7dee750';
+    const client_secret = '89f5c7df705e4ab9b4b06f978cc21f1d';
+    const url = 'https://accounts.spotify.com/api/token';
+    const grant_type = 'client_credentials';
+
+    const encodedClientDeets = new Buffer(client_id + ':' + client_secret).toString('base64');
+
+    const options = {
+        url: url,
+        body: 'grant_type=' + grant_type,
+        method: 'POST',
+        headers: {
+            'Authorization': 'Basic ' + encodedClientDeets,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    };
+
+    request(options, function(error, response, body) {
+        res.json(JSON.parse(response.body));
+    });
+});
+
+
 var directory = "./public/Data/";
 var clientDirectory = "/Data/";
 var file = directory + 'users.json';
@@ -105,7 +130,7 @@ var Webcam = NodeWebcam.create(opts);
 var currentUser;
 
 takePicture();
-setInterval(takePicture, 5000);
+setInterval(takePicture, 50000);
 
 http.listen(3000, function ()
 {
@@ -154,10 +179,10 @@ function takePicture()
 
                                      console.log("User verified as " + user.username);
                                      if(currentUser !== user.username) {
+                                        currentUser = user.username;
                                         console.log("Emitting new user " + user.username);
                                         io.sockets.emit('userVerified', user);
-                                        io.sockets.emit('speech', 'Welcome to the magic mirror ' + user.username);
-                                        currentUser = user.username;
+                                        io.sockets.emit('speech', 'Welcome to the magic mirror ' + user.username + '. It\'s nice to see you again');
                                      }
 
                                      if (user.images.length < 11 && response[0].confidence > .9)

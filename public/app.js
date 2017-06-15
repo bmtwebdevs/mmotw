@@ -27,4 +27,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     faceClient.initialise();
     speechClient.initialise();
+    spotify.initialise();
 });

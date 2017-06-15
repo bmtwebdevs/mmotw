@@ -17,7 +17,10 @@ var voice = voice || (function () {
         //console.log('You said: ', said);
 
         if (said.indexOf('play') > -1) {
-            soundcloud.playIt();
+            var firstSpace = said.indexOf(' ');
+            var searchTerm = said.substring(firstSpace, said.length);
+            console.log(searchTerm);
+            spotify.search(searchTerm);
         }
 
         if (said.indexOf('next') > -1) {
