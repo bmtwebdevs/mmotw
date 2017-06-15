@@ -27,18 +27,18 @@ var config = config || (function() {
         'work': 'BA23DQ',
         'travel_mode': 'DRIVING'
       },
-      'Moshin': {
-        'home': 'BS51BT',
+      'moshin': {
+        'home': 'BS5 8BT',
         'work': 'BA23DQ',
         'travel_mode': 'DRIVING'
       },
       'yolanta': {
-        'home': 'BA1',
+        'home': 'BS348GD',
         'work': 'BA23DQ',
-        'travel_mode': 'DRIVING'
+        'travel_mode': 'DRIVING',
+        'gapis_access_token': 'ya29.GlxqBFNI3-BgcD39gLHDPid8ukyBGjYvJijxsxbk5YITYaWyyjgoUFJwCVrWHcoYoEeLxARi5PBq3bNEK_DsYrBbSOKb_LjzyI8Ia1G0IrKZT006KN1xBM4IAlORRQ'
       }
     }
   };
 
 })();
-
