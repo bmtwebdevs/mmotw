@@ -1,9 +1,17 @@
 var layout = layout || (function (d) {
 
     var container;
+    var currentRow;
 
     function initialise(containerSelector) {
         container = d.querySelectorAll(containerSelector)[0];
+    }
+
+    function addRow() {
+        var row = d.createElement("div");
+        row.classList.add("row");
+        currentRow = row;
+        container.appendChild(row);
     }
 
     function addPanel(module, options) {
@@ -12,6 +20,7 @@ var layout = layout || (function (d) {
         panel.classList.add("panel");
         panel.classList.add("pull-left");
         panel.classList.add("col-sm-4");
+
         if(options) {
             if(options.size) {
                 panel.classList.add("col-sm-" + options.size);
@@ -23,14 +32,16 @@ var layout = layout || (function (d) {
                 panel.style.minHeight = options['min-height'];
             }
         }
+
         module.attach(panel);
 
-        container.appendChild(panel);
+        currentRow.appendChild(panel);
     }
 
     return {
         initialise: initialise,
-        addPanel: addPanel
+        addPanel: addPanel,
+        addRow: addRow
     };
 
 })(document);

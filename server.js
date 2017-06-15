@@ -184,7 +184,7 @@ function takePicture()
                                  }
                              }).catch((rejected) =>
                              {
-                                 console.log('rej: ' + rejected);
+                                 console.log('rej: ',  rejected);
                              });
                          }
                      });

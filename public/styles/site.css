@@ -55,10 +55,6 @@ ul {
     color: #fff;
 }
 
-.thumbnail {
-    width:100px;
-    height:100px;
-}
 
 /*timetable*/
 .timetable aside {
@@ -138,4 +134,21 @@ pre {
 
 .wi {
     margin-left: 2em;
+}
+
+/* user profile */
+.username {
+    font-size: 48px;
+}
+
+.location {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.thumbnail {
+    width:100px;
+    height:100px;
+    background-color: transparent;
+    border: none;
 }
