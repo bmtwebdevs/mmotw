@@ -5,7 +5,7 @@ var calendarPanel = calendarPanel || (function () {
 
     function update() {
 
-      var html = '<h4>Calendar</h4> \
+      var html = '<p class="title">Calendar</p> \
       <div class="timetable"></div>';
 
       const today = new Date(); var start = new Date(); var end = new Date();

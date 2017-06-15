@@ -17,26 +17,35 @@ var travel = travel || (function () {
                 var travelIcon = '';
                 switch (travel_mode) {
                     case 'DRIVING':
-                        travelIcon = '<i class="fa fa-5x fa-car" aria-hidden="true"></i>';
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-car" aria-hidden="true"></i></div>';
                         break;
                     case 'WALKING':
-                        travelIcon = '<i class="fa fa-5x fa-male" aria-hidden="true"></i>';
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-male" aria-hidden="true"></i></div>';
+                        break;
+                    case 'BICYCLING':
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-bicycle" aria-hidden="true"></i></div>';
+                        break;
+                    case 'TRANSIT':
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-train" aria-hidden="true"></i></div>';
                         break;
                     default:
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-car" aria-hidden="true"></i></div>';
                         break;
                 }
                 var time = response.routes[0].legs[0].duration.text;
-                var html = '<p class="title">Your journey to work </p>';
-                    html += '<p class="journey">' + journey.start_address + ' to<br/> ' + journey.end_address + '</p>';
+                var html =  travelIcon;
+                    html += '<p class="title">Your journey</p>';
+                    html += '<p class="journey_details"><span class="context">From: </span>' + journey.start_address;
+                    html += '<br/><span class="context">To: </span>' + journey.end_address + '</p>';
                     html += '<p class="journey">'+ distance + ' will take ' + duration + '</p>';
-                    html += travelIcon;
+
                 panel.innerHTML = html;
         });
     }
 
     function attach(p) {
         panel = p;
-        panel.innerHTML = '<h5>Loading</h5>';
+        panel.innerHTML = '<h4>Finding journey...</h4>';
 
         faceClient.addEventListener(update);
 

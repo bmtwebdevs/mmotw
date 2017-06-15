@@ -35,16 +35,14 @@ var weather = weather || (function () {
 
                 // Finally tack on the prefix.
                 icon = prefix + icon;
+                var iconHtml = '<div class="iconContainer"><i class="' + icon + '" ></i></div>';
 
-                var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                var html = iconHtml;
+                html += '<div class="textContainer"><p class="title">' + response.name + '</p>';
 
-                var html = '<p class="title">' + response.name + '</p>';
+                html += '<p class="details">' + response.weather[0].main + '</p></div>';
 
-                var iconHtml = '<i class="' + icon + '" ></i>';
-
-                html += '<p class="details">' + response.weather[0].main + '</p>';
-
-                html += '<p class="temp">' + temp + '&deg;' + '</p>';
+                html += '<div class="iconContainer"><p class="temp">' + temp + '&deg;' + '</p></div>';
 
                 panel.innerHTML = html;
             }).then(function () {

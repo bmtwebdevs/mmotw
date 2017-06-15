@@ -68,7 +68,6 @@ users.forEach(function (user)
                 returnFaceId: true
             }).then(function (response)
             {
-                console.log('user images', response);
                 if (response.length > 0)
                 {
                     image.timeOut = today.addDays(1);

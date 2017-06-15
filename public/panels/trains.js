@@ -42,7 +42,7 @@ var trains = trains || (function () {
 
     function attach(p) {
         panel = p;
-        panel.innerHTML = '<h5>Loading</h5>';
+        panel.innerHTML = '<h4>Checking trains...</h4>';
 
         update();
     }
