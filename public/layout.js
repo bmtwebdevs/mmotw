@@ -19,14 +19,13 @@ var layout = layout || (function (d) {
         var panel = d.createElement("div");
         panel.classList.add("panel");
         panel.classList.add("pull-left");
+        panel.classList.add("col-sm-4");
 
         if(options) {
             if(options.size) {
                 panel.classList.remove("col-sm-4");
                 panel.classList.add("col-sm-" + options.size);
             }
-            else panel.classList.add("col-sm-4");
-            
             if(options.height) {
                 panel.style.height = options.height;
             }

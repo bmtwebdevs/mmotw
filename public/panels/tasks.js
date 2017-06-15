@@ -29,6 +29,7 @@ var tasks = tasks || (function () {
         html += '<pre id="tasks-content"></pre>';
         apis.tasks.getTasks(start, end, access_token)
             .then(function (response) {
+              console.log(response);
               var taskLists = response.items;
               if (taskLists && taskLists.length > 0) {
                 for (var i = 0; i < taskLists.length; i++) {
