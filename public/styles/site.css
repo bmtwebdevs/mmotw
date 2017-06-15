@@ -1,6 +1,7 @@
 body {
     background-color: #000;
     padding-top: 10px;
+    font-family: 'Segoe UI', 'arial', 'verdana';
 }
 
 ul {
@@ -54,10 +55,6 @@ ul {
     color: #fff;
 }
 
-.thumbnail {
-    width:100px;
-    height:100px;
-}
 
 /*timetable*/
 .timetable aside {
@@ -92,4 +89,66 @@ pre {
   color: white;
   font-size: 14px;
 
+}
+/* Time panel */
+.time {
+    font-size: 72px;
+    text-align: left;
+}
+
+.date {
+    font-size: 32px;
+    color: #ccc;
+}
+
+/* Travel panel */
+
+.title {
+    font-size: 32px;
+}
+
+.journey {
+    color: #ccc;
+    font-size: 18px;
+}
+
+/* Weather panel */
+
+.title {
+    font-size: 32px;
+}
+
+.details {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.temp {
+    font-size: 72px;
+}
+
+.weatherIcon {
+    width: 150px;
+    height: 150px;
+}
+
+.wi {
+    margin-left: 2em;
+}
+
+/* user profile */
+.username {
+    font-size: 48px;
+}
+
+.location {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.thumbnail {
+    width:100px;
+    height:100px;
+    background-color: transparent;
+    border: none;
 }

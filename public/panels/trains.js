@@ -6,8 +6,11 @@ var trains = trains || (function () {
         apis.transport.findStations('bath spa')
             .then(function (response) {
 
+                if(!response) {
+                    return; // this probably means the API usage is crapped out
+                }
+
                 var station = response[0];
-                console.log(station);
 
                 apis.transport.live(station.station_code)
                     .then(function (response) {
