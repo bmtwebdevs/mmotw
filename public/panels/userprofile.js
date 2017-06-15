@@ -9,14 +9,17 @@ var userprofile = userprofile || (function () {
 
     function userVerified(data) {
         user = data;
-        panel.classList.add('centerAlign');
-        panel.innerHTML =
-            '<div class="thumbnail"> \
-                <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
-            </div><!-- /thumbnail -->\
-            <p class="username">' + data.username + '</p>\
-            <p class="location">Bristol, United Kingdom</p>\
-            </div>';
+        apis.position.getCurrentLocation(function(location) {
+
+            panel.innerHTML =
+                '<div class="thumbnail"> \
+                    <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
+                </div><!-- /thumbnail -->\
+                <p class="username">' + data.username + '</p>\
+                <p class="location">' + location.city + '</p>\
+                </div>';
+        });
+
     }
 
     function attach(p) {

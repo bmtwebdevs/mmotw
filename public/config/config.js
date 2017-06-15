@@ -27,8 +27,8 @@ var config = config || (function() {
         'work': 'BA23DQ',
         'travel_mode': 'DRIVING'
       },
-      'Moshin': {
-        'home': 'BS51BT',
+      'moshin': {
+        'home': 'BS5 8BT',
         'work': 'BA23DQ',
         'travel_mode': 'DRIVING'
       },

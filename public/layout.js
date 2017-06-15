@@ -23,13 +23,11 @@ var layout = layout || (function (d) {
 
         if(options) {
             if(options.size) {
+                panel.classList.remove("col-sm-4");
                 panel.classList.add("col-sm-" + options.size);
             }
             if(options.height) {
                 panel.style.height = options.height;
-            }
-            if(options['min-height']) {
-                panel.style.minHeight = options['min-height'];
             }
         }
 

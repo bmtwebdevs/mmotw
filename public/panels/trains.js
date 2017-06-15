@@ -16,7 +16,7 @@ var trains = trains || (function () {
                     .then(function (response) {
 
                         var html = ' \
-                            <h4>Train Times</h4> \
+                            <p class="title">Train Times</p> \
                             <ul>';
 
                         response.forEach(function (item) {

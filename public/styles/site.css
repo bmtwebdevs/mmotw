@@ -25,6 +25,7 @@ ul {
 
     line-height: 48px;
     min-height: 48px;
+    margin: 1em;
 }
 
 .speech-feedback * {
@@ -37,9 +38,16 @@ ul {
     min-height: 70px;
 }
 
-.speech-feedback img {
+.speech-feedback i {
     width: 40px;
     height: 40px;
+    animation: fade 2s infinite;
+    color: #fff;
+}
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
 }
 
 .hidden {
@@ -48,8 +56,8 @@ ul {
 
 .panel {
     padding: 16px;
-    height: 400px;
-    min-height: 400px;
+    min-height: 200px;
+    height: 300px;
     overflow: hidden;
     background-color: transparent;
     color: #fff;
