@@ -49,6 +49,8 @@ var tasks = tasks || (function () {
 
         panel = p;
 
+        faceClient.addEventListener(update);
+
         update();
     }
 

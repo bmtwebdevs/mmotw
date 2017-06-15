@@ -5,7 +5,7 @@ var calendarPanel = calendarPanel || (function () {
 
     function update() {
 
-      html = '<h4>Calendar</h4> \
+      var html = '<h4>Calendar</h4> \
       <div class="timetable"></div>';
 
       const today = new Date(); var start = new Date(); var end = new Date();
@@ -61,6 +61,8 @@ var calendarPanel = calendarPanel || (function () {
     function attach(p) {
 
         panel = p;
+
+        faceClient.addEventListener(update);
 
         update();
     }
