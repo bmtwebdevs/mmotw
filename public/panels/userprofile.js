@@ -16,7 +16,7 @@ var userprofile = userprofile || (function () {
                     <img src= "' + data.images[0].image + '" alt="' + data.username + '" class="img-circle">\
                 </div><!-- /thumbnail -->\
                 <p class="username">' + data.username + '</p>\
-                <p class="location">' + location.city + '</p>\
+                <p class="location">' + location.address + '</p>\
                 </div>';
         });
 
