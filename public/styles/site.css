@@ -135,6 +135,12 @@ pre {
     font-size: 72px;
 }
 
+
+.tempforecast {
+    font-size: 18px;
+}
+
+
 .weatherIcon {
     width: 150px;
     height: 150px;
