@@ -17,6 +17,10 @@ var userprofile = userprofile || (function () {
 
     }
 
+    function welcome(data) {
+        say.speak(data);
+    }
+
     function attach(p) {
         panel = p;
         panel.innerHTML = "<h4>Detecting profile...</h4>";

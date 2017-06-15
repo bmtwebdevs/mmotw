@@ -26,4 +26,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     voice.triggerVoice('Talk to me..');
 
     faceClient.initialise();
+    speechClient.initialise();
+    spotify.initialise();
 });

@@ -16,7 +16,7 @@ var config = config || (function() {
         'home': 'BA146RE',
         'work': 'BA23DQ',
         'travel_mode': 'BICYCLING',
-        'gapis_access_token': 'ya29.GltqBBAYHfTOzJM2BjDGXzL_HqojTabwOwx8owtJBxeuvb11VCL8sVMheUaPLBSJmdRDL7yuISmfMyHRO3xMK9LiNfiQXD1VshhUHAfrESUHiEmi2OjprO6-u0mY'
+        'gapis_access_token': 'ya29.GlxqBAcpRfyMPXhKqJ10PhAbsWzKzzXp3I5hu0C4KX402gHqbbOcU6WxBGJLrp1nboWUGOiBDWdNoxmr-Cs-Bp08AlvgKbaGq1cAGj-zOKqOAISzHLXWtoSlBpLV_A'
       },
       'gareth': {
         'home': 'BA1',
