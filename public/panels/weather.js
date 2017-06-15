@@ -3,10 +3,12 @@ var weather = weather || (function () {
     var panel;
 
     function update() {
-        apis.weather.getWeather()
-            .then(function (response) {
-                console.log(response);
+        apis.position.getCurrentPosition(drawWeather);
+    }
 
+    function drawWeather(position) {
+        apis.weather.getWeather(position.coords)
+            .then(function (response) {
                 //Convert EPOCH date to human readable
                 var timestamp = response.dt;
                 var dateTime = new Date(timestamp * 1000);
@@ -15,7 +17,7 @@ var weather = weather || (function () {
                 var day = dateTime.getDate();
                 var dateTime1 = day + '-' + month + '-' + year;
 
-                var html = '<p class="title">Weather - Bath</p>';
+                var html = '<p class="title">' + response.name + '</p>';
 
                 var tempConvert = parseInt(response.main.temp) - 273.15;
                 var temp = Math.round(tempConvert * 10) / 10;
@@ -40,16 +42,15 @@ var weather = weather || (function () {
 
                 html += '<p class="details">' + response.weather[0].main + '</p>';
 
-                //html += icon;
-                //'<div><img class="weatherIcon" src="' + iconUrl + '"/></div>';
-
                 html += '<p class="temp">' + temp + '&deg;' + icon + '</p>';
 
                 panel.innerHTML = html;
             }).then(function () {
                 setTimeout(update, 30000);
             });
+
     }
+
 
     function attach(p) {
 

@@ -2,8 +2,6 @@ var blank = blank || (function () {
 
     var panel;
 
-
-
     function update() {
     }
 

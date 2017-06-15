@@ -5,9 +5,9 @@ apis.weather = apis.weather || (function () {
     const base = 'http://api.openweathermap.org/data/2.5/weather';
     const creds = 'APPID=' + app_id;
 
-    function getWeather(search) {
+    function getWeather(coords) {
 
-        return apis.ajax.get(base + '?id=2654675' + '&' + creds
+        return apis.ajax.get(base + '?lat=' + coords.latitude + '&lon=' + coords.longitude + '&' + creds
         ).then(function (response) {
             return JSON.parse(response);
         });
