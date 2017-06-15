@@ -23,7 +23,6 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-
 app.get('/forecast', function (req, res) {
 
     const secret_key = 'dcb4eb4795a963c13544021a5799fe28';
@@ -36,15 +35,9 @@ app.get('/forecast', function (req, res) {
     });
 });
 
-
-
 var directory = "./public/Data/";
 var clientDirectory = "/Data/";
 var file = directory + 'users.json';
-//var users = [{ id: 1, username: 'Naval', guids: ['a38ae7e1-8059-4724-b84e-312ff891d66d'], images: ['./Data/Naval.JPG'] }, { id: 2, username: "Gareth", guids: ['77dae8bf-64d3-445e-bd14-d45cb191dc39'] }];
-//jsonfile.writeFile(file, users, function (err) {
-//    console.error(err)
-//})
 var users = jsonfile.readFileSync(file);
 users.forEach(function (user)
 {
@@ -71,7 +64,7 @@ users.forEach(function (user)
         {
             promises.push(client.face.detect(
             {
-                path:  'public' + image.image,
+                path: 'public' + image.image,
                 returnFaceId: true
             }).then(function (response)
             {
@@ -99,9 +92,7 @@ function writeUsers()
     });
 }
 
-
-var opts =
-{
+var opts = {
     delay: 0,
     saveShots: true,
     output: "jpeg",
@@ -114,12 +105,11 @@ var opts =
 var Webcam = NodeWebcam.create(opts);
 
 takePicture();
-setInterval(takePicture, 11000);
-
+setInterval(takePicture, 5000);
 
 http.listen(3000, function ()
 {
-  console.log('listening on *:3000');
+    console.log('listening on *:3000');
 });
 
 function takePicture()
@@ -129,12 +119,12 @@ function takePicture()
     {
         Jimp.read(data, function (err, tmp)
         {
-            if (err) throw err;
+            if (err) { console.log('woot', err); };
+            if(!tmp) return;
             tmp.resize(640, 480)
                  .quality(70)
                  .write(tmpDirectory, function (response)
                  {
-                     console.log(err);
                      client.face.detect(
                      {
                          path: tmpDirectory,
@@ -148,15 +138,17 @@ function takePicture()
                              var faceId = response[0].faceId;
                              client.face.similar(faceId,
                              {
-                                 candidateFaces: Linq.from(users).selectMany(function (x) { return x.images }).select(function (x) { return x.guid }).toArray()
+                                 candidateFaces: Linq.from(users).selectMany(function (x) {
+                                     return x.images
+                                    }).select(function (x) { return x.guid }).toArray()
                              })
                              .then(function (response)
                              {
-                                 console.log(response);
+                                 //console.log('blaa', response);
                                  if (response.length > 0 && response[0].confidence > .6)
                                  {
                                      var user = Linq.from(users).where(function (x) { return Linq.from(x.images).any(function (x) { return x.guid == response[0].faceId }) }).first();
-                                     console.log(user);
+                                     console.log('user', user);
                                      console.log("User verified as " + user.username + ".");
                                      io.sockets.emit('userVerified', user)
                                      if (user.images.length < 11 && response[0].confidence > .9)
@@ -164,7 +156,7 @@ function takePicture()
                                          var filename = user.username + user.images.length + '.JPG';
                                          fs.rename(tmpDirectory, directory + filename, function (err)
                                          {
-                                             if (err) console.log('ERROR: ' + err);
+                                             if (err) console.log('ERROR:', err);
                                          });
                                          user.images.push({ "image": clientDirectory + filename, "guid": faceId, "timeOut": new Date().addDays(1) });
                                          writeUsers();
@@ -173,14 +165,6 @@ function takePicture()
                                  else
                                  {
                                      console.log("User not recognised");
-                                     //prompt.start();
-                                     //prompt.get([{ name: 'username', message: "Please enter new user name" }], function (err, result) {
-                                     //    users.push({ id: users[users.length - 1].id + 1, username: result.name, guids: [faceId] });
-                                     //});
-                                     //jsonfile.writeFile(file, users, function (err) {
-                                     //    console.error(err)
-                                     //})
-
                                  }
                              }).catch((rejected) =>
                              {

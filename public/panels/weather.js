@@ -17,7 +17,7 @@ var weather = weather || (function () {
                 var day = dateTime.getDate();
                 var dateTime1 = day + '-' + month + '-' + year;
 
-                var html = '<p class="title">' + response.name + '</p>';
+
 
                 var tempConvert = parseInt(response.main.temp) - 273.15;
                 var temp = Math.round(tempConvert * 10) / 10;
@@ -38,11 +38,13 @@ var weather = weather || (function () {
 
                 var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
-                var icon = '<i class="' + icon + '" ></i>';
+                var html = '<p class="title">' + response.name + '</p>';
+
+                var iconHtml = '<i class="' + icon + '" ></i>';
 
                 html += '<p class="details">' + response.weather[0].main + '</p>';
 
-                html += '<p class="temp">' + temp + '&deg;' + icon + '</p>';
+                html += '<p class="temp">' + temp + '&deg;' + '</p>';
 
                 panel.innerHTML = html;
             }).then(function () {

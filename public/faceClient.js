@@ -7,7 +7,6 @@ var faceClient = faceClient || (function () {
 		socket = io.connect('http://localhost:3000');
 
 		socket.on('userVerified', function (data) {
-
 			_(listeners).forEach(function (listener) {
 				listener(data);
 			});

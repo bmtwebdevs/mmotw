@@ -35,7 +35,7 @@ var config = config || (function() {
       'yolanta': {
         'home': 'BA1',
         'work': 'BA23DQ',
-        'travel_mode': 'DRIVING'
+        'travel_mode': 'TRAIN'
       }
     }
   };
