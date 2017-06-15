@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     layout.addRow();
     layout.addPanel(userprofile);
     layout.addPanel(blank);
-    layout.addPanel(time, { height: '200px', 'min-height': '200px' });
+    layout.addPanel(time, { height: '200px' });
 
     layout.addRow();
-    layout.addPanel(weather, { height: '200px', 'min-height': '200px' });
+    layout.addPanel(weather, { height: '200px' });
     layout.addPanel(blank);
     layout.addPanel(travel);
 
