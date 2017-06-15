@@ -15,8 +15,8 @@ var config = config || (function() {
       'doug': {
         'home': 'BA146RE',
         'work': 'BA23DQ',
-        'travel_mode': 'DRIVING',
-        'gapis_access_token': 'ya29.GltqBBVbWORw0-iCcQaVEv3GrnwzAhsCnZFSnZOW71_cJbfr65jpVuDEGH9jnTVjYncqh9Wra-yo2bjobrQFWvyyKqGNdHKfaeta_EgD6m_0xaPXQ6stWCiG47o_'
+        'travel_mode': 'BICYCLING',
+        'gapis_access_token': 'ya29.GltqBBAYHfTOzJM2BjDGXzL_HqojTabwOwx8owtJBxeuvb11VCL8sVMheUaPLBSJmdRDL7yuISmfMyHRO3xMK9LiNfiQXD1VshhUHAfrESUHiEmi2OjprO6-u0mY'
       },
       'gareth': {
         'home': 'BA1',
