@@ -26,9 +26,9 @@ var travel = travel || (function () {
                         break;
                 }
                 var time = response.routes[0].legs[0].duration.text;
-                var html = '<h3>Your journey to work </h3>';
-                    html += '<h4>' + journey.start_address + ' to<br/> ' + journey.end_address + '</h4>';
-                    html += '<h4>'+ distance + ' will take ' + duration + '</h4>';
+                var html = '<p class="title">Your journey to work </p>';
+                    html += '<p class="journey">' + journey.start_address + ' to<br/> ' + journey.end_address + '</p>';
+                    html += '<p class="journey">'+ distance + ' will take ' + duration + '</p>';
                     html += travelIcon;
                 panel.innerHTML = html;
         });
