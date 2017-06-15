@@ -102,6 +102,7 @@ var opts = {
 };
 //Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
+var currentUser;
 
 takePicture();
 setInterval(takePicture, 2000);
@@ -147,9 +148,14 @@ function takePicture()
                                  if (response.length > 0 && response[0].confidence > .6)
                                  {
                                      var user = Linq.from(users).where(function (x) { return Linq.from(x.images).any(function (x) { return x.guid == response[0].faceId }) }).first();
-                                     console.log('user', user);
-                                     console.log("User verified as " + user.username + ".");
-                                     io.sockets.emit('userVerified', user)
+
+                                     console.log("User verified as " + user.username);
+                                     if(currentUser !== user.username) {
+                                        console.log("Emitting new user " + user.username);
+                                        io.sockets.emit('userVerified', user);
+                                        currentUser = user.username;
+                                     }
+
                                      if (user.images.length < 11 && response[0].confidence > .9)
                                      {
                                          var filename = user.username + user.images.length + '.JPG';
