@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     layout.addRow();
     layout.addPanel(weather, { height: '210px' });
-    layout.addPanel(blank, { height: '250px' });
-    layout.addPanel(travel, { height: '250px' });
+    layout.addPanel(blank, { height: '230px' });
+    layout.addPanel(travel, { height: '230px' });
 
     layout.addRow();
     layout.addPanel(forecast);
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     layout.addPanel(tasks);
 
     layout.addRow();
-    layout.addPanel(calendarPanel, { size: 8 });
+    layout.addPanel(calendarPanel, { size: 12 });
 
     voice.listen('.speech-feedback');
     voice.triggerVoice('Talk to me..');

@@ -101,6 +101,7 @@ ul {
 .date {
     font-size: 32px;
     color: #ccc;
+    margin-left: 0.25em;
 }
 
 /* Travel panel */
@@ -119,11 +120,16 @@ ul {
 .journey {
     color: #0f0;
     font-size: 24px;
+    text-align: center;
 }
 
 .travelIcon {
     display: inline-block;
     margin-right: 1em;
+}
+
+span.context {
+    color: #fff;
 }
 
 /* Weather panel */
@@ -139,19 +145,15 @@ ul {
 
 .details {
     color: #ccc;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .temp {
     font-size: 72px;
 }
 
-.tempforecast {
-    font-size: 18px;
-}
-
 .iconContainer {
-    width: 50%;
+    width: 40%;
     display: inline-block;
     font-size: 72px;
     text-align: center;
@@ -183,4 +185,20 @@ ul {
 #tasks-content {
     font-size: 24px;
     color: #ccc;
+}
+
+
+/* forecast */
+
+.flexslider {
+    padding-left: 1em;
+}
+
+.tempforecast {
+    font-size: 24px;
+}
+
+span.gridTemp {
+    margin-left: 2em;
+    margin-right: 2em;
 }

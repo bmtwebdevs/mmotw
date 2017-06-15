@@ -16,17 +16,17 @@ var config = config || (function() {
         'home': 'BA146RE',
         'work': 'BA23DQ',
         'travel_mode': 'DRIVING',
-        'gapis_access_token': 'ya29.GltqBOsbrrW6-GZGzgSv7UO-GG3drNs7Ho5AmHcyA_XYLqzojVWmXohKer9dOgp0TfXqaEg8yP8waOfepd-8jp1ki6AbLMP-zGZul4eOyFR78GeqJeLsvXYXF3pc'
+        'gapis_access_token': 'ya29.GltqBBVbWORw0-iCcQaVEv3GrnwzAhsCnZFSnZOW71_cJbfr65jpVuDEGH9jnTVjYncqh9Wra-yo2bjobrQFWvyyKqGNdHKfaeta_EgD6m_0xaPXQ6stWCiG47o_'
       },
       'gareth': {
         'home': 'BA1',
         'work': 'BA23DQ',
-        'travel_mode': 'DRIVING'
+        'travel_mode': 'TRANSIT'
       },
       'naval': {
         'home': 'BA1',
         'work': 'BA23DQ',
-        'travel_mode': 'DRIVING'
+        'travel_mode': 'BICYCLING'
       },
       'moshin': {
         'home': 'BS5 8BT',
@@ -36,7 +36,7 @@ var config = config || (function() {
       'yolanta': {
         'home': 'BS348GD',
         'work': 'BA23DQ',
-        'travel_mode': 'DRIVING',
+        'travel_mode': 'TRANSIT',
         'gapis_access_token': 'ya29.GlxqBFNI3-BgcD39gLHDPid8ukyBGjYvJijxsxbk5YITYaWyyjgoUFJwCVrWHcoYoEeLxARi5PBq3bNEK_DsYrBbSOKb_LjzyI8Ia1G0IrKZT006KN1xBM4IAlORRQ'
       }
     }
