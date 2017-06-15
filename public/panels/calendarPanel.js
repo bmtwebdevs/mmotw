@@ -7,6 +7,7 @@ var calendarPanel = calendarPanel || (function () {
     function update() {
 
       panel.innerHTML = '<h4>Calendar</h4> \
+      <button id="authorize-button" style="display: none;">Authorize</button> \
       <div class="timetable"></div>';
 
       //panel.innerHTML = '<h4>Calendar</h4> \<pre id="content"></pre>';

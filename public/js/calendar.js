@@ -8,7 +8,8 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 // included, separated by spaces.
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/tasks.readonly";
 
-var authorizeButton = document.getElementById('authorize-button');
+  var authorizeButton;
+
 // var signoutButton = document.getElementById('signout-button');
 
 /**
@@ -23,6 +24,7 @@ function handleClientLoad() {
  *  listeners.
  */
 function initClient() {
+  authorizeButton = document.getElementById('authorize-button');
   gapi.client.init({
     discoveryDocs: DISCOVERY_DOCS,
     clientId: CLIENT_ID,
@@ -31,9 +33,11 @@ function initClient() {
     // Listen for sign-in state changes.
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
+    console.log(JSON.stringify(gapi.auth2.getAuthInstance().currentUser.get().getAuthResponse()));
+
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    //authorizeButton.onclick = handleAuthClick;
+    authorizeButton.onclick = handleAuthClick;
     //signoutButton.onclick = handleSignoutClick;
 
   });
@@ -54,13 +58,13 @@ function updateSigninStatus(isSignedIn) {
   end = (new Date(end)).toISOString();
 
   if (isSignedIn) {
-    //authorizeButton.style.display = 'none';
+    authorizeButton.style.display = 'none';
     //signoutButton.style.display = 'block';
 
     listCalendarEvents(start, end);
     listTasks();
   } else {
-    //authorizeButton.style.display = 'block';
+    authorizeButton.style.display = 'block';
     //signoutButton.style.display = 'none';
   }
 }
