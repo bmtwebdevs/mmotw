@@ -9,7 +9,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     layout.addRow();
     layout.addPanel(weather, { height: '200px', 'min-height': '200px' });
-    layout.addPanel(blank);
+    layout.addPanel(forecast);
+//    layout.addPanel(blank);
     layout.addPanel(travel);
 
     layout.addRow();
