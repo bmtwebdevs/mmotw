@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Google Calendar</title>
+    <title>Google Authentication</title>
     <meta charset='utf-8' />
   </head>
   <link rel="stylesheet" href="css/timetablejs.css">
   <body>
-    <p>Google Calendar and Tasks</p>
+    <p>MMOW Google Authentication for Calendar and Tasks</p>
 
     <!--buttons to initiate auth sequence-->
-    <button id="authorize-button" style="display: none;">Authorize</button>
-
-    <div class="timetable"></div>
-
     <pre id="content"></pre>
+    <button id="authorize-button" style="display: none;">Authorize</button>
+    <button id="signout-button" style="display: none;">Sign Out</button>
+
+
   </body>
 
-    <script src="lib/timetable.min.js"></script>
-
-    <script type="text/javascript" src="js/calendar.js"></script>
+    <script type="text/javascript" src="authenticate.js"></script>
 
     <script async defer src="https://apis.google.com/js/api.js"
       onload="this.onload=function(){};handleClientLoad()"
