@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     layout.addRow();
     layout.addPanel(forecast);
-    //layout.addPanel(trains);
     layout.addPanel(blank);
     layout.addPanel(tasks);
 
     layout.addRow();
-    layout.addPanel(calendarPanel, { size: 12 });
+    layout.addPanel(calendarPanel, { size: 8 });
+    layout.addPanel(trains);
 
     voice.listen('.speech-feedback');
     voice.triggerVoice('Talk to me..');

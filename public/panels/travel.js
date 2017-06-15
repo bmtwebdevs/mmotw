@@ -22,11 +22,11 @@ var travel = travel || (function () {
                     case 'WALKING':
                         travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-male" aria-hidden="true"></i></div>';
                         break;
-                    case 'DRIVING':
-                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-car" aria-hidden="true"></i></div>';
+                    case 'BICYCLING':
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-bicycle" aria-hidden="true"></i></div>';
                         break;
-                    case 'WALKING':
-                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-male" aria-hidden="true"></i></div>';
+                    case 'TRANSIT':
+                        travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-train" aria-hidden="true"></i></div>';
                         break;
                     default:
                         travelIcon = '<div class="travelIcon"><i class="fa fa-5x fa-car" aria-hidden="true"></i></div>';

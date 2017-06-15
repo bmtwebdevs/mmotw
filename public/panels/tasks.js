@@ -3,13 +3,12 @@ var tasks = tasks || (function () {
     var panel;
 
     function append(message) {
-      var pre = document.getElementById('tasks-content');
-      var textContent = document.createTextNode(message + '\n');
-      pre.appendChild(textContent);
+      var tasks = document.getElementById('tasks-content');
+      tasks.innerHTML += message;
     }
 
     function update() {
-      var html = '<p class="title">Tasks</p>';
+      var html = '<p class="title">Weekly Tasks</p>';
       const today = new Date(); var start = new Date(); var end = new Date();
       start = new Date(start.setHours(1));
       start = start.setDate(today.getDate() - (today.getDay()));
@@ -33,12 +32,13 @@ var tasks = tasks || (function () {
               if (taskLists && taskLists.length > 0) {
                 for (var i = 0; i < taskLists.length; i++) {
                   var taskList = taskLists[i];
-                  console.log(taskList);
                   const days =['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-                  if (taskList.title != "") append(taskList.title +" DUE: " + days[new Date(taskList.due).getDay()]);
+                  if (taskList.title != "") {
+                    append(taskList.title + " <span class='due'>by " + days[new Date(taskList.due).getDay()] + '</span><br/>');
+                  }
                 }
               } else {
-                append('No task lists found.');
+                append('No tasks found.');
               }
         });
       } else {

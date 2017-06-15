@@ -187,6 +187,16 @@ span.context {
     color: #ccc;
 }
 
+.complete {
+    text-decoration: line-through;
+}
+
+span.due {
+    color: #fff;
+    text-align: right;
+    font-size: 18px;
+}
+
 
 /* forecast */
 
