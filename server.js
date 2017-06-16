@@ -23,17 +23,17 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/forecast', function (req, res) {
+// app.get('/forecast', function (req, res) {
 
-    const secret_key = 'dcb4eb4795a963c13544021a5799fe28';
-    const base = 'https://api.darksky.net/forecast';
-    const lat = req.query.lat;
-    const lon = req.query.lon;
+//     const secret_key = 'dcb4eb4795a963c13544021a5799fe28';
+//     const base = 'https://api.darksky.net/forecast';
+//     const lat = req.query.lat;
+//     const lon = req.query.lon;
 
-    return request(base + '/' + secret_key + '/' + lat + ',' + lon, function(error, response, body) {
-        return response;
-    });
-});
+//     return request(base + '/' + secret_key + '/' + lat + ',' + lon, function(error, response, body) {
+//         return response;
+//     });
+// });
 
 app.get('/spotify-authenticate', function (req, res) {
 
@@ -59,11 +59,18 @@ app.get('/spotify-authenticate', function (req, res) {
     });
 });
 
+http.listen(3000, function ()
+{
+    console.log('listening on *:3000');
+});
+
 
 var directory = "./public/Data/";
 var clientDirectory = "/Data/";
 var file = directory + 'users.json';
 var users = jsonfile.readFileSync(file);
+var currentUser;
+
 users.forEach(function (user)
 {
     user.images.forEach(function (image)
@@ -125,26 +132,24 @@ var opts = {
     callbackReturn: "buffer",
     verbose: false
 };
+
 //Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
-var currentUser;
 
-takePicture();
-setInterval(takePicture, 50000);
 
-http.listen(3000, function ()
-{
-    console.log('listening on *:3000');
+io.on('connection', function(socket) {
+    currentUser = null;
+    io.sockets.emit('speech', 'I\'m looking for you through my webcam, please wait for recognition');
+    takePicture();
+    setInterval(takePicture, 5000);
 });
+
 
 function takePicture()
 {
     var tmpDirectory = directory + 'tmp.JPG';
     Webcam.capture(tmpDirectory, function (err, data)
     {
-        if(!currentUser) {
-          io.sockets.emit('speech', 'I\'m looking for you through my webcam, please wait for recognition');
-        }
         Jimp.read(data, function (err, tmp)
         {
             if (err) { console.log('woot', err); };
@@ -153,6 +158,7 @@ function takePicture()
                  .quality(70)
                  .write(tmpDirectory, function (response)
                  {
+                     //console.log(response);
                      client.face.detect(
                      {
                          path: tmpDirectory,
@@ -163,6 +169,7 @@ function takePicture()
                          console.log('detect', response);
                          if (response.length > 0)
                          {
+                             //clearInterval(searching);
                              var faceId = response[0].faceId;
                              client.face.similar(faceId,
                              {
