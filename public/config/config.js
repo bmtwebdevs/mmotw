@@ -37,7 +37,9 @@ var config = config || (function() {
         'home': 'BS348GD',
         'work': 'BA23DQ',
         'travel_mode': 'TRANSIT',
-        'gapis_access_token': 'ya29.GlxrBCJuZrXhDuZyleqM2TpnAaOf_MPResQQybTMtKe6MT1e-cs2EFRnKiZRdGrWerYzox_LxmNCNATjgGqflYek5n4_P8l3swhe9OtAfUdH6jD9Utc0OBl1Tw26EA'}
+        'gapis_access_token': 'ya29.GlxrBCJuZrXhDuZyleqM2TpnAaOf_MPResQQybTMtKe6MT1e-cs2EFRnKiZRdGrWerYzox_LxmNCNATjgGqflYek5n4_P8l3swhe9OtAfUdH6jD9Utc0OBl1Tw26EA'
+      }
+    }
   };
 
 })();
