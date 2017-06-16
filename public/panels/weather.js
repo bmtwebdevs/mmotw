@@ -16,11 +16,7 @@ var weather = weather || (function () {
                 var month = dateTime.getMonth() + 1;
                 var day = dateTime.getDate();
                 var dateTime1 = day + '-' + month + '-' + year;
-
-
-
-                var tempConvert = parseInt(response.main.temp) - 273.15;
-                var temp = Math.round(tempConvert * 10) / 10;
+                var temp = getTempInDegrees(response.main.temp);
 
                 var iconCode = response.weather[0].icon;
 
@@ -51,6 +47,26 @@ var weather = weather || (function () {
 
     }
 
+    function getTempInDegrees(temp) {
+        var tempConvert = parseInt(temp) - 273.15;
+        return Math.round(tempConvert * 10) / 10;
+    }
+
+    function sayWeather() {
+
+        apis.position.getCurrentPosition(function(position) {
+
+            apis.weather.getWeather(position.coords)
+            .then(function (response) {
+
+                speechClient.say('The weather today in ' + response.name + ' is ' + getTempInDegrees(response.main.temp) + '\
+                degrees and ' + response.weather[0].main);
+
+            });
+        });
+
+    }
+
 
     function attach(p) {
 
@@ -60,6 +76,7 @@ var weather = weather || (function () {
     }
 
     return {
-        attach: attach
+        attach: attach,
+        sayWeather: sayWeather
     };
 })();

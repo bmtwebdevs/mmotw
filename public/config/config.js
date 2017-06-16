@@ -17,7 +17,7 @@ var config = config || (function() {
         'home': 'BA146RE',
         'work': 'BA23DQ',
         'travel_mode': 'DRIVING',
-        'gapis_access_token': 'ya29.GlxrBESwngUQ_uRaHHtQJus1490RLkl0Ty-_G6kt0_Rjsqj3pCAKVqzT9GXY7Nr7iRNfRERZd_tek8ZngMf7MsinIGPqJE_yMk7RofOiprK6x-4MMReD24_ca3f03g',
+        'gapis_access_token': 'ya29.GlxrBEitrvoQqSaRX0gR89zVIJ0kMOAPelXIK_STfqO5ATf9K0NyFIFzM6sFfYyXcTErfXtHjyHOHJ4XpN5oRVkQMGbxN28J2VG0W-jzQbpijOmXtGlFjVxHhxLnlg',
         'station': 'bradford on avon'
 
       },

@@ -12,28 +12,31 @@ var voice = voice || (function () {
     function voiceReceived(event) {
 
         var said = event.results[0][0].transcript;
-
         logit(event.results);
-        //console.log('You said: ', said);
+
+        if(said.indexOf('mirror') === -1) {
+            return;
+        }
 
         if (said.indexOf('play') > -1) {
             var firstSpace = said.indexOf(' ');
             var searchTerm = said.substring(firstSpace, said.length);
-            console.log(searchTerm);
             spotify.search(searchTerm);
         }
 
-        if (said.indexOf('next') > -1) {
-            soundcloud.nextIt();
-        }
-
-        if (said.indexOf('previous') > -1) {
-            soundcloud.previousIt();
-        }
-
         if (said.indexOf('stop') > -1) {
-            soundcloud.stopIt();
+            spotify.stop();
         }
+
+        if(said.indexOf('weather') > -1) {
+            weather.sayWeather();
+        }
+
+        if(said.indexOf('next') > -1 && said.indexOf('train') > -1) {
+            trains.sayNextTrain();
+        }
+
+
 
         hideTime = new Date();
         hideTime.setMilliseconds(hideTime.getMilliseconds() + 2990);
@@ -52,7 +55,7 @@ var voice = voice || (function () {
             if (now < hideTime) {
                 return;
             }
-            //speechFeedback.classList.add('hidden');
+            speechFeedback.classList.add('hidden');
         }, 3000);
     }
 

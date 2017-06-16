@@ -14,7 +14,9 @@ ul {
     -webkit-transition: opacity .8s ease-in-out;
     -moz-transition: opacity .8s ease-in-out;
     transition: opacity .8s ease-in-out;
+}
 
+.speech-container {
     line-height: 48px;
     min-height: 48px;
     margin: 1em 1em 1em 2em;
@@ -58,7 +60,7 @@ ul {
 
 /*timetable*/
 .timetable aside {
-    font-size:11px;
+    font-size:18px;
     width: 10%;
 }
 .timetable section {
@@ -69,7 +71,7 @@ ul {
 }
 .timetable aside li {
     padding: 0 15px;
-    background-color: grey;
+    background-color: #000;
     height: 30px
 }
 .timetable time li {
@@ -79,10 +81,10 @@ ul {
     height: 30px
 }
 .timetable ul.room-timeline li {
-    background-color: grey
+    background-color: #000;
 }
 .timetable ul.room-timeline li:nth-of-type(odd) {
-    background-color: 	#A9A9A9
+    background-color: 	#000;
 }
 /* Time panel */
 .time {

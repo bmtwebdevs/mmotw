@@ -137,11 +137,10 @@
     bottom: 0
 }
 .timetable ul.room-timeline li:before {
-    background-image: linear-gradient(to right, #E5E5E5 1px, transparent 1px);
     background-size: 24px auto
 }
 .timetable ul.room-timeline li:after {
-    background-image: linear-gradient(to right, #E5E5E5, #E5E5E5 1px, #F4F4F4 1px, #F4F4F4 2px, #E5E5E5 2px, #E5E5E5 3px, transparent 3px, transparent);
+
     background-size: 96px auto;
     background-position: -2px 0
 }

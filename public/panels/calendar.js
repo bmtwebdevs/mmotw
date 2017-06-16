@@ -50,10 +50,10 @@ var calendarPanel = calendarPanel || (function () {
                 var renderer = new Timetable.Renderer(timetable);
                 renderer.draw('.timetable');
               } else {
-                html += '<p> No upcoming events found. </p>';
+                html += '<p class="details"> No upcoming events found. </p>';
               }
             });
-          } else html += '<p> No calendar found. </p>';
+          } else html += '<p class="details"> No calendar found. </p>';
 
           panel.innerHTML = html;
     }
