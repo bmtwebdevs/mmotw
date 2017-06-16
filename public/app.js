@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     layout.addPanel(tasks);
 
     layout.addRow();
-    layout.addPanel(calendarPanel, { size: 8 });
+    layout.addPanel(calendarPanel, { size: 8, height: '400px' });
     layout.addPanel(trains);
 
     voice.listen('.speech-feedback');
