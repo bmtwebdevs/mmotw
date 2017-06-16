@@ -1,20 +1,12 @@
 body {
     background-color: #000;
-    padding-top: 10px;
+    padding: 20px;
     font-family: 'Segoe UI', 'arial', 'verdana';
 }
 
 ul {
     list-style-type: none;
     padding: 0;
-}
-
-.good {
-    color: #0f0;
-}
-
-.bad {
-    color: #f00;
 }
 
 .speech-feedback {
@@ -25,7 +17,7 @@ ul {
 
     line-height: 48px;
     min-height: 48px;
-    margin: 1em;
+    margin: 1em 1em 1em 2em;
 }
 
 .speech-feedback * {
@@ -34,7 +26,7 @@ ul {
 
 .speech-feedback span {
     font-size: 3em;
-    color: #fff;
+    color: #ffeeee;
     min-height: 70px;
 }
 
@@ -212,4 +204,34 @@ span.due {
 span.gridTemp {
     margin-left: 2em;
     margin-right: 2em;
+}
+
+
+/* trains */
+
+.good {
+    color: lightgreen;
+}
+
+.bad {
+    color: lightcoral;
+}
+
+.train {
+    font-size: 18px;
+}
+
+
+/* trains */
+.destination {
+    margin-left: 1em;
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+}
+
+.status {
+    font-size: 18px;
+    float: right;
+    display: inline-block;
 }

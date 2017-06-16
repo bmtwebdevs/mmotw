@@ -12,6 +12,10 @@ var spotify = spotify || (function () {
         });
     }
 
+    function stop() {
+        audio.stop();
+    }
+
     function search(query) {
 
         $.ajax({

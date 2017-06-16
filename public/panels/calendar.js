@@ -31,7 +31,7 @@ var calendarPanel = calendarPanel || (function () {
               const events = response.items;
               if (events.length > 0) {
                 const timetable = new Timetable();
-                timetable.setScope(9, 17);
+                timetable.setScope(0, 23);
                 const days =['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 timetable.addLocations(days);
                 for (i = 0; i < events.length; i++) {
