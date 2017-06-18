@@ -16,7 +16,13 @@ var speechClient = speechClient || (function () {
 		})
 	}
 
+	function say(message) {
+			var utterThis = new SpeechSynthesisUtterance(message);
+			synth.speak(utterThis);
+	}
+
 	return {
-		initialise: initialise
+		initialise: initialise,
+		say: say
 	};
 })();

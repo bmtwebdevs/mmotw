@@ -14,7 +14,9 @@ ul {
     -webkit-transition: opacity .8s ease-in-out;
     -moz-transition: opacity .8s ease-in-out;
     transition: opacity .8s ease-in-out;
+}
 
+.speech-container {
     line-height: 48px;
     min-height: 48px;
     margin: 1em 1em 1em 2em;

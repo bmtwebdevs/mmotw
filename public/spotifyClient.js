@@ -44,6 +44,7 @@ var spotify = spotify || (function () {
 
     return {
         initialise: initialise,
-        search: search
+        search: search,
+        stop: stop
     };
 })();

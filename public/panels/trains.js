@@ -1,7 +1,7 @@
 var trains = trains || (function () {
 
     var panel;
-
+    var nextTrain;
 
 
     function update() {
@@ -25,27 +25,24 @@ var trains = trains || (function () {
                             <p class="title">Trains from ' + station.station_code + '</p> \
                             <ul>';
 
-                        response.forEach(function (item) {
+                        response.forEach(function (item, i) {
+
+                            if(i === 0) {
+                                nextTrain = item;
+                            }
 
                             var itemClass = item.status === 'LATE' ? 'bad' : 'good';
 
                             html += '<li class="train ' + itemClass + '">' + item.due;
                             html += ' <span class="destination">' + item.to + '</span>';
-
-
                             var howLate = colonTimeToDate(item.expected) - colonTimeToDate(item.due);
                             var howLateInMinutes = howLate / 60 / 1000;
-                            console.log(item.due);
-                            console.log(item.expected);
-                            console.log(howLate / 60 / 1000);
-                            console.log('=====');
                             if(howLate > 0) {
                                 html += '<span class="status">' + howLateInMinutes + 'm late</span></li>';
                             }
                             html += '</li>';
 
                         });
-
 
                         html += '</ul>';
 
@@ -57,9 +54,26 @@ var trains = trains || (function () {
     }
 
     function colonTimeToDate(time) {
+        if(!time) {
+            return;
+        }
         var timeParts = time.split(':');
         var now = new Date();
         return new Date(now.getFullYear(), now.getMonth(), now.getDate(), timeParts[0], timeParts[1]);
+    }
+
+    function sayNextTrain() {
+
+        var user = userprofile.getUsername();
+        var userConfig = config.users[user] ? config.users[user] : config.users['default'];
+        var msg = 'The next train from ' + userConfig['station'] + 'goes to ' + nextTrain.to;
+        var howLate = colonTimeToDate(nextTrain.expected) - colonTimeToDate(nextTrain.due);
+        var howLateInMinutes = howLate / 60 / 1000;
+        if(howLate > 0) {
+            msg += ' but it\'s ' + howLateInMinutes + ' minutes late.';
+        }
+
+        speechClient.say(msg);
     }
 
     function attach(p) {
@@ -72,7 +86,8 @@ var trains = trains || (function () {
     }
 
     return {
-        attach: attach
+        attach: attach,
+        sayNextTrain: sayNextTrain
     };
 
 })();
