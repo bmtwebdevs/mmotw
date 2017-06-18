@@ -130,7 +130,7 @@ var Webcam = NodeWebcam.create(opts);
 var currentUser;
 
 takePicture();
-setInterval(takePicture, 50000);
+setInterval(takePicture, 5000);
 
 http.listen(3000, function ()
 {
