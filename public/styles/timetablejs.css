@@ -136,14 +136,19 @@
     right: 0;
     bottom: 0
 }
+<<<<<<< HEAD:public/css/timetablejs.css
 .timetable ul.room-timeline li:before {
+=======
+/*.timetable ul.room-timeline li:before {
+    background-image: linear-gradient(to right, #E5E5E5 1px, transparent 1px);
+>>>>>>> d2b7beb39aad47ae357e54d62714284991e9f370:public/styles/timetablejs.css
     background-size: 24px auto
 }
 .timetable ul.room-timeline li:after {
 
     background-size: 96px auto;
     background-position: -2px 0
-}
+}*/
 .timetable .time-entry {
     background-color: #EC6A5E;
     transition: 200ms background-color;

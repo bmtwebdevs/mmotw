@@ -136,7 +136,6 @@ var opts = {
 //Creates webcam instance
 var Webcam = NodeWebcam.create(opts);
 
-
 io.on('connection', function(socket) {
     currentUser = null;
     io.sockets.emit('speech', 'I\'m looking for you through my webcam, please wait for recognition');
