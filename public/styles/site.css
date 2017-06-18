@@ -58,18 +58,18 @@ ul {
 
 /*timetable*/
 .timetable aside {
-    font-size:11px;
-    width: 10%;
+    font-size:12px;
+    width: 15%;
 }
 .timetable section {
-    width: 90%;
+    width: 85%;
     padding: 0!important;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch
 }
 .timetable aside li {
     padding: 0 15px;
-    background-color: grey;
+    background-color: black;
     height: 30px
 }
 .timetable time li {
@@ -79,11 +79,27 @@ ul {
     height: 30px
 }
 .timetable ul.room-timeline li {
-    background-color: grey
+    background-color: black;
+    border-top: 1px solid #E5E5E5;
+    border-right: none;
 }
+.timetable ul.room-timeline li {
+  background: none;
+}
+
 .timetable ul.room-timeline li:nth-of-type(odd) {
-    background-color: 	#A9A9A9
+    background-color: black;
 }
+
+.timetable section header li:not(:last-of-type) {
+    width: 56px
+}
+.timetable ul.room-timeline li:after {
+    background-image: linear-gradient(to right, #E5E5E5, #E5E5E5 1px, #F4F4F4 1px, #F4F4F4 2px, #E5E5E5 2px, #E5E5E5 3px, transparent 3px, transparent);
+    background-size: 56px auto;
+    background-position: -2px 0
+}
+
 /* Time panel */
 .time {
     font-size: 72px;

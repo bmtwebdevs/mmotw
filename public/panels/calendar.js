@@ -21,9 +21,7 @@ var calendarPanel = calendarPanel || (function () {
       var userConfig = config.users[user] ? config.users[user] : config.users['default'];
       var access_token = userConfig.gapis_access_token;
 
-      //const access_token = "ya29.GlxqBFNI3-BgcD39gLHDPid8ukyBGjYvJijxsxbk5YITYaWyyjgoUFJwCVrWHcoYoEeLxARi5PBq3bNEK_DsYrBbSOKb_LjzyI8Ia1G0IrKZT006KN1xBM4IAlORRQ";
-
-
+      //access_token = 'ya29.GlxrBCJuZrXhDuZyleqM2TpnAaOf_MPResQQybTMtKe6MT1e-cs2EFRnKiZRdGrWerYzox_LxmNCNATjgGqflYek5n4_P8l3swhe9OtAfUdH6jD9Utc0OBl1Tw26EA';
       if (access_token) {
         apis.calendar.getCalendar(start, end, access_token)
             .then(function (response) {
@@ -31,7 +29,7 @@ var calendarPanel = calendarPanel || (function () {
               const events = response.items;
               if (events.length > 0) {
                 const timetable = new Timetable();
-                timetable.setScope(0, 23);
+                timetable.setScope(8, 19);
                 const days =['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
                 timetable.addLocations(days);
                 for (i = 0; i < events.length; i++) {
