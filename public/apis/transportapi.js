@@ -11,20 +11,7 @@ apis.transport = apis.transort || (function () {
     const stationsUrl = 'places.json?type=train_station';
     const liveUrl = 'train/station/{STATION_CODE}/live.json';
 
-    function throttled() {
-        console.log('startup time', startupTime);
-
-        console.log('interval', refreshInterval);
-        const deltaTicks = new Date().getTime() - startupTime;
-        console.log('delta', deltaTicks);
-        return deltaTicks / 100 > refreshInterval;
-    }
-
     function findStations(search) {
-
-        if(throttled()) {
-            return;
-        }
 
         return apis.ajax.get(base + stationsUrl + '&' + creds, {
             query: search
@@ -34,10 +21,6 @@ apis.transport = apis.transort || (function () {
     }
 
     function live(station) {
-
-        if(throttled()) {
-            return;
-        }
 
         return apis.ajax.get(base + liveUrl.replace('{STATION_CODE}', station) + '?' + creds)
             .then(function (response) {
